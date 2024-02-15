@@ -1,4 +1,9 @@
+<!--
 ### Hi there 👋
+-->
+
+Hi, I am a fullstack developer software developer. My current position now is IT Researcher.
+## Pause, Think, Act
 
 <!--
 **devalltect00/devalltect00** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

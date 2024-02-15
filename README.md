@@ -2,7 +2,7 @@
 ### Hi there 👋
 -->
 
-### Hi 👋, I am a full-stack developer, software engineer. 🔭 Currently I hold the position of IT researcher.
+### Hi 👋, I am a full-stack developer, software engineer.🔭 Currently I hold the position of IT researcher. 🌱 I’m currently learning React JS, Data Science, and Web Development
 ## Pause, Think, Act
 
 <!--

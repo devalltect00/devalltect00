@@ -2,7 +2,7 @@
 ### Hi there 👋
 -->
 
-### Hi, I am a fullstack developer software developer. My current position now is IT Researcher.
+### Hi, I am a fullstack developer, software developer, IT Engineer. Now, my current position  is IT Researcher.
 ## Pause, Think, Act
 
 <!--

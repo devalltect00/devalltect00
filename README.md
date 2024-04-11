@@ -3,8 +3,8 @@
 -->
 
 Hi 👋, I am a full-stack developer, software engineer, mobile developer.
-🔭 Currently I hold the position of IT researcher.
-🌱 I’m currently learning React JS, Data Science, and Web Development
+🔭 Last Time, I held the position of IT researcher.
+🌱 I’m currently learning React JS, Node JS, Data Science, and Web Development
 
 ## Pause, Think, Act
 

@@ -4,7 +4,7 @@
 
 Hi 👋, I am a full-stack developer, software engineer, mobile developer.
 🔭 Last Time, I held the position of IT researcher.
-🌱 I’m currently learning React JS, Node JS, Data Science, and Web Development
+🌱 I’m currently learning React JS, Node JS, and Web Development
 
 ## Pause, Think, Act
 

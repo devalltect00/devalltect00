@@ -2,7 +2,7 @@
 ### Hi there 👋
 -->
 
-Hi 👋, I am a full-stack developer, software engineer, mobile developer.
+Hi 👋, I am a full-stack developer, software developer.
 🔭 Last Time, I held the position of IT researcher.
 🌱 I’m currently learning React JS, Node JS, and Web Development
 

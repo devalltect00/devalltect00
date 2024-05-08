@@ -3,8 +3,7 @@
 -->
 
 Hi 👋, I am a full-stack developer, software developer.
-🔭 Last Time, I held the position of IT researcher.
-🌱 I’m currently learning React JS, Node JS, and Web Development
+🌱 I’m currently learning Front-End & Back-End Development, also UI UX
 
 ## Pause, Think, Act
 

@@ -2,9 +2,6 @@
 ### Hi there 👋
 -->
 
-Hi 👋, I am a full-stack developer, software developer.
-🌱 I’m currently learning Front-End & Back-End Development, also UI UX
-
 ## Pause, Think, Act
 
 <!--

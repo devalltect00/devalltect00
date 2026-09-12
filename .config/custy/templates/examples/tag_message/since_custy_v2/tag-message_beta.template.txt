@@ -1,0 +1,37 @@
+🧪 Custy v2.1.0-beta.1 — Beta Prerelease
+
+Custy v2.1.0-beta.1 is available for broader testing of the upcoming 2.1.0
+release. This beta is intended for users and contributors who can evaluate new
+features in a non-production repository and report compatibility or workflow
+problems before release-candidate promotion.
+
+### 🌟 Highlights
+
+- [Describe the most important user-facing beta feature.]
+- [Describe a workflow, integration, or automation improvement.]
+- [Describe a reliability, diagnostics, or developer-experience improvement.]
+
+### 🐛 Fixes Since the Previous Prerelease
+
+- [Describe an important corrected behavior.]
+- [Describe a compatibility or edge-case fix.]
+
+### 🧪 Recommended Beta Validation
+
+1. Install the beta in an isolated environment.
+2. Review configuration and generated templates before using them.
+3. Run `custy validate` in a non-production repository.
+4. Preview consequential operations with the global `--dry-run` option.
+5. Verify files, Git state, tags, remotes, artifacts, and diagnostic logs.
+6. Report unexpected behavior before the release advances to RC.
+
+### ⚠️ Beta Status
+
+- This version is a prerelease and is not recommended for production use.
+- Commands, configuration, output, and documentation may still change.
+- Experimental features retain their existing warnings and support boundaries.
+
+_Release: v2.1.0-beta.1_
+_Target stable release: v2.1.0_
+_Strategy: Semantic Versioning_
+_Author: Devalltect / Rizky Fernandes_

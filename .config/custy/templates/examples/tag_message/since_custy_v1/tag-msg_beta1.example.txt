@@ -1,0 +1,19 @@
+🧪 Beta Release Custy 1.10.0b2
+
+Beta release for **Custy 1.10.0** — focusing on mid-stage features and improved automation.
+Continues improvements to the Git automation system by strengthening test coverage, polishing CASE logic, and adding new documentation.
+
+### ✨ Highlights
+
+- 🧪 Added tests for `WorkflowManager` and CASE transition flows
+- 🐛 Fixed transition-related logic in `WorkflowManager`
+- 📄 More example templates for commit and tag messages
+- 📚 Added `git_workflow_cases.md` and documentation for related functions and classes
+- ✅ Updated `docs/TODO.md` to reflect progress
+- 🧹 Full code lint and format with `ruff`
+
+---
+
+ℹ️ This is a **beta pre-release** and is **not recommended for production use**.
+_Author: devalltect00_
+_Date: 2025-08-06_

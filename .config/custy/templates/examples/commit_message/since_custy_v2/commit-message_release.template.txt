@@ -1,0 +1,35 @@
+release(main): promote Custy v2.1.0
+
+Promote the validated Custy 2.1.0 release candidate to the stable v2.1.0
+release line.
+
+[State whether the stable promotion contains no changes after the final RC, or
+summarize the exact fixes and release-preparation changes made since it.]
+
+### ✅ Stable Release
+
+- Carry forward the validated feature, fix, refactor, test, automation, and documentation set from the prerelease cycle.
+- [Describe any final correction made after the latest release candidate.]
+- [Describe final repository, packaging, or documentation preparation.]
+
+### 🌟 Release Highlights
+
+- [Summarize the most important user-facing capability.]
+- [Summarize an important workflow, reliability, or safety improvement.]
+- [Summarize a significant contributor or integration improvement.]
+
+### 📦 Release Readiness
+
+- [Confirm tests, packaging, artifacts, installation, and documentation were reviewed.]
+- [Confirm supported upgrade and migration guidance is available.]
+- [Identify any feature that remains experimental after the stable release.]
+
+Tag: v2.1.0
+Previous version: v2.1.0-rc.1
+Strategy: Semantic Versioning
+Changelog: generated separately
+
+🔖 **Tags**:
+- Type: `#release`, `#feature`, `#bugfix`
+- Delivery: `#stable`, `#semver`
+- Quality: `#validated`, `#documented`

@@ -1,0 +1,5 @@
+feat(auth): implement user login and error handling
+
+- added login form
+- handled login failure with flash messages
+- added redirect to dashboard

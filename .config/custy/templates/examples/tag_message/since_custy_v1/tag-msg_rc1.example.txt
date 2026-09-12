@@ -1,0 +1,9 @@
+🧪 Release Candidate 1.4.0rc3
+
+This release candidate prepares the upcoming **Custy CLI v1.4.0** with several feature enhancements, safeguard, and automation improvements. It consolitaes all changes introduces across earlier pre-release.
+
+### 🔍 Highlights
+
+- Resolved issue with `get_last_tag_before()` in `GitHelper`(`app\utils\git.py`).
+
+ℹ️ This is a **release-candidate** feature-complete but pending final validation before stable release.

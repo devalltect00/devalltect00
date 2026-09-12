@@ -1,0 +1,9 @@
+<type>(<scope>): <short summary>
+
+<description>
+
+<optional: list of changes, bullet points>
+
+BREAKING CHANGE: <describe breaking API, behavior, or CLI change>
+
+Refs: #123, closes #456

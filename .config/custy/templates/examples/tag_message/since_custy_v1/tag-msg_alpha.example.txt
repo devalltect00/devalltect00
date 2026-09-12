@@ -1,0 +1,20 @@
+🧪 Alpha Release 1.4.0a1
+
+This alpha introduces foundational changes and early experiments for the upcoming v1.4.0 release of Custy CLI.
+
+### 🔍 Highlights
+
+- Prevents major.minor.patch bump when incrementing within same pre-release tier (e.g. rc1 → rc2)
+- Generates changelog only on final releases (e.g. v1.2.3), skipping pre-releases
+- Enforces bump/tag only for specific types [feat, fix, perf, docs, refactor]; others require CLI override
+- Detects project type (Python or JavaScript) to apply correct versioning scheme (PEP 440 or SemVer)
+- Tag messages now opened in external file like commit-msg.txt; supports default message via flag
+- For release tags, auto-generates commit/tag message template from all prereleases (pre, dev, etc.)
+- Prevents bump from rc → final from incrementing patch (v1.2.3rc1 → v1.2.3, not v1.2.4)
+- Adds cleanup logic for `backups/`, keeping 10 latest (customizable via CLI)
+- Fixes backup and template folder resolution; commit-msg.txt placement corrected
+- Adds `cleanup-backups` CLI handler
+- Updated `.gitignore` to ignore `templates/tag-msg.txt`
+- Updated `.projectignore` to ignore `templates/tag-msg.txt`
+
+ℹ️ This is a **pre-release** and not intended for production use.

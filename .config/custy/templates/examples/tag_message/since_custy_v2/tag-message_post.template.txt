@@ -1,0 +1,34 @@
+📦 Custy v2.0.0.post1 — Packaging and Distribution Correction
+
+Custy v2.0.0.post1 is a PEP 440 post release for correcting packaging,
+distribution, documentation, or release metadata associated with v2.0.0. It
+does not introduce new supported application behavior.
+
+### 🔧 Corrections
+
+- [Describe the package, artifact, release-page, or metadata correction.]
+- [Describe any documentation or installation clarification.]
+- [Describe rebuilt or republished artifacts and their source revision.]
+
+### ✅ Compatibility
+
+- Application behavior remains aligned with the base v2.0.0 release.
+- Existing v2.0.0 configuration and supported command usage remain valid.
+- Users affected by the corrected distribution issue should install the post release.
+
+### 📥 Who Should Update
+
+- Update if you consume the corrected Python package, artifact, or metadata.
+- Updating is optional when the original v2.0.0 distribution works correctly for your environment.
+- Review artifact timestamps and checksums when packages were rebuilt or republished.
+
+### ⚠️ Versioning Note
+
+The `.post1` suffix follows PEP 440 and is not valid SemVer post-release
+notation. If application code or supported behavior changes, publish a normal
+patch release such as `v2.0.1` instead.
+
+_Release: v2.0.0.post1_
+_Base release: v2.0.0_
+_Strategy: PEP 440_
+_Author: Devalltect / Rizky Fernandes_

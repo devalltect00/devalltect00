@@ -1,0 +1,8 @@
+docs(release): v1.4.1
+
+Final release of Custy v1.4.1
+
+Includes modified documentation.
+
+Tag: v1.4.1
+Changelog: handled separately

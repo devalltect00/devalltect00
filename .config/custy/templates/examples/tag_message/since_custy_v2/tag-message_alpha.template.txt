@@ -1,0 +1,29 @@
+🧬 Custy v2.1.0-alpha.1 — Early Alpha Prerelease
+
+Custy v2.1.0-alpha.1 provides an early preview of the next Custy release for
+maintainers and early adopters. It is intended to validate core direction and
+integration assumptions before the feature set enters beta.
+
+### ✨ Early Preview
+
+- [Describe the primary early feature.]
+- [Describe an experimental workflow or integration.]
+- [Describe an initial developer-facing improvement.]
+
+### 🧪 Requested Feedback
+
+- Does the proposed command or configuration design solve the intended problem?
+- Are errors, progress, and safety boundaries understandable?
+- Which compatibility, migration, or platform issues block broader beta testing?
+
+### ⚠️ Alpha Status
+
+- This is an early prerelease and is not suitable for production use.
+- Features may be incomplete and interfaces may change.
+- Use an isolated environment and a non-production repository.
+- Back up important work and preview consequential operations with dry-run.
+
+_Release: v2.1.0-alpha.1_
+_Target stable release: v2.1.0_
+_Strategy: Semantic Versioning_
+_Author: Devalltect / Rizky Fernandes_

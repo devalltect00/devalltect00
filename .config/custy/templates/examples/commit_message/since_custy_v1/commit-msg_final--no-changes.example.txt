@@ -1,0 +1,8 @@
+chore(release): v1.4.0
+
+Final release of Custy v1.4.0 - prompted from release candidate
+
+Includes all feature and fixes from alpha and RC pre-releases. No changes. since v1.4.0rc1.
+
+Tag: v1.4.0
+Changelog: handled separately

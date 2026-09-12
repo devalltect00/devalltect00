@@ -1,0 +1,8 @@
+chore(release): v1.4.0rc1
+
+Release candidate for v1.4.0, consolidating all pre-release changes.
+
+- fixes bugs and improve behaviour when using `--dry-run`
+- Improve docs and Makefile targets
+
+Tag: v1.4.0rc1

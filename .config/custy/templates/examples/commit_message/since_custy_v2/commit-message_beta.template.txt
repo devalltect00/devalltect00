@@ -1,0 +1,44 @@
+feat(release): prepare Custy v2.1.0-beta.1
+
+Prepare the first beta for Custy 2.1.0 so users and contributors can evaluate
+the upcoming release before it advances to a release candidate.
+
+This beta contains functionality that is ready for broader testing but may
+still receive behavioral adjustments, compatibility fixes, and documentation
+updates before the stable release.
+
+### ✨ Beta Features
+
+- [Describe the primary feature introduced by this beta.]
+- [Describe an important workflow or CLI improvement.]
+- [Describe any configuration, integration, or developer-facing capability.]
+
+### 🧠 Improvements
+
+- [Describe a usability, performance, maintenance, or architecture improvement.]
+- [Describe clearer output, validation, diagnostics, or documentation.]
+
+### 🐛 Bug Fixes
+
+- [Describe bugs fixed since the previous alpha or development release.]
+
+### 🧪 Validation
+
+- [List focused tests and checks completed for this beta.]
+- [Identify the workflows that still need broader testing.]
+
+### ⚠️ Beta Notes
+
+- This is a prerelease and is not recommended for production workflows.
+- Configuration, command behavior, and output may still change before v2.1.0.
+- Test consequential operations in a non-production repository and use dry-run first.
+- Report compatibility problems, unexpected side effects, and unclear output before RC promotion.
+
+Tag: v2.1.0-beta.1
+Previous version: [previous version]
+Target stable version: v2.1.0
+
+🔖 **Tags**:
+- Type: `#feature`, `#improvement`, `#bugfix`
+- Quality: `#testing`, `#feedback`
+- Stability: `#beta`, `#prerelease`

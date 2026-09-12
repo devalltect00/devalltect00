@@ -1,0 +1,40 @@
+feat(release): prepare Custy v2.1.0-alpha.1
+
+Prepare the first alpha for Custy 2.1.0 so maintainers and early adopters can
+evaluate the initial implementation before broader beta testing.
+
+This alpha represents an early integration milestone. Features may be
+incomplete, interfaces may change, and migration compatibility is not yet
+guaranteed.
+
+### ✨ Early Features
+
+- [Describe the primary feature available for early evaluation.]
+- [Describe an experimental CLI, workflow, or configuration capability.]
+- [Describe an initial developer-facing extension point.]
+
+### 🧠 Initial Improvements
+
+- [Describe an architecture, maintainability, diagnostics, or UX improvement.]
+- [Describe preliminary documentation or examples.]
+
+### 🧪 Early Validation
+
+- [List focused unit or integration tests completed so far.]
+- [Identify incomplete workflows and areas that still require testing.]
+
+### ⚠️ Alpha Notes
+
+- This is an early prerelease and must not be used for production workflows.
+- Commands, configuration, file formats, and extension points may change without migration support.
+- Use an isolated environment and a disposable or non-production repository.
+- Preview consequential operations with dry-run and report failures with reproducible details.
+
+Tag: v2.1.0-alpha.1
+Previous version: [previous development snapshot]
+Target stable version: v2.1.0
+
+🔖 **Tags**:
+- Type: `#feature`, `#experiment`, `#refactor`
+- Quality: `#early-testing`, `#feedback`
+- Stability: `#alpha`, `#prerelease`

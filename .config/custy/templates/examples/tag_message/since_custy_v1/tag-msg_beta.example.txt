@@ -1,0 +1,18 @@
+🧪 Beta Release Custy 1.9.0b1 — Better CLI, Docs, CI, Template Structure, and Minor Fixes
+
+Beta release for **Custy 1.9.0** — focusing on mid-stage features and improved automation.
+
+### ✨ Highlights
+
+- Better CLI with silent/debug options and more intuitive flow
+- CI jobs now run on GitLab and GitHub to ensure test coverage
+- Improved and reorganized message templates for commit/tag generation
+- Cleaned and restructured project layout with better file organization
+- Reformatted codebase using `ruff` and cleaned unused files
+- 🐛 Fixed a minor internal bug to improve stability
+
+---
+
+ℹ️ This is a **beta pre-release** and is **not recommended for production use**.
+_Author: devalltect00_
+_Date: 2025-08-04_

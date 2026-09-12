@@ -1,0 +1,112 @@
+✅ Custy v2.0.0 — Stable Major Release
+
+Custy v2.0.0 promotes the feature set reviewed in `v2.0.0-rc.1` to the stable
+2.0 release line. No new Custy command behavior was introduced after RC.1; the
+final promotion combines repository cleanup with historical tag normalization
+and recovery of missing GitHub Releases and container packages.
+
+Custy 2.0 evolves the project from a mostly monolithic Git automation script
+into a structured developer-productivity CLI with discoverable commands,
+explicit release pipelines, centralized configuration, safer previews, and
+clearer extension points.
+
+### 🌟 Highlights
+
+- Typer and Rich CLI with focused initialization, validation, versioning, changelog, commit, tag, push, backup, and cleanup commands.
+- Reusable `custy run dev`, `custy run release`, and `custy run full` profiles with visible, deterministic step ordering.
+- Namespaced `.config/custy/config.toml` configuration with CLI → configuration → default resolution.
+- Rebuilt changelog generation with Conventional Commit parsing, configurable grouping and cleaning, pending content, release sorting, links, metadata, statistics, and Jinja templates.
+- Determinate changelog progress for `Unreleased` content and every discovered Git tag.
+- Consistent dry-run behavior that retains read-only discovery and validation while simulating intended file, editor, Git, and remote mutations.
+- SemVer, PEP 440, Commitizen, date, and Git-count version strategies with separated Git execution and service boundaries.
+- Multi-remote synchronization, structured message backups, retention cleanup, and protected branch-cleanup rules.
+- Expanded CLI, core, integration, regression, configuration, logging, UI, workflow, dry-run, cleanup, and changelog test coverage.
+- Docker, Docker Compose, modular Make targets, GitHub Actions, GitLab CI, pre-commit, packaging, and release automation.
+- Comprehensive English and Indonesian documentation through the Devalltect documentation portal.
+
+### 🧹 Changes Since v2.0.0-rc.1
+
+- Removed temporary development notes, scratch change lists, and completed version-specific TODO files.
+- Archived the v2.0.0 development scope, decisions, completed work, future ideas, and release checklist in the tracking history.
+- Performed final repository housekeeping for the stable release.
+- Normalized historical Custy tags from PEP 440-oriented notation to Semantic Versioning notation.
+- Recreated missing GitHub Releases for historical Custy 1.x versions from their corresponding tags.
+- Rebuilt missing historical container images from their corresponding tags with Reflow and published them to GitHub Container Registry.
+
+There are no additional supported-command behavior changes between
+`v2.0.0-rc.1` and `v2.0.0`.
+
+### 📦 Repository and Distribution Recovery
+
+The historical Custy repository distribution was normalized and restored as
+part of the stable-release preparation:
+
+- Historical version tags now follow the repository's Semantic Versioning convention.
+- Historical prerelease identifiers use SemVer notation instead of the former PEP 440 notation.
+- Missing GitHub Release pages for the Custy 1.x release line were reconstructed from their corresponding historical tags.
+- Missing historical container images were rebuilt from the source associated with each tag using Reflow.
+- Rebuilt images were published to GitHub Container Registry through GitHub Packages.
+- Source tags, GitHub Releases, and container-image tags now use a more consistent versioning and distribution structure.
+
+This recovery does not introduce source changes into those historical
+versions. Publication timestamps for reconstructed GitHub Releases and
+container images reflect the recovery operation and may differ from the
+original software release dates.
+
+Users and automation that reference former PEP 440-formatted Git tags,
+release URLs, or container tags must update those references to their
+corresponding SemVer names.
+
+For example:
+
+- Former tag: `v1.4.0rc1`
+- SemVer tag: `v1.4.0-rc.1`
+
+### 💻 For Custy Users
+
+- Run `custy init` to create editable project configuration and templates.
+- Run `custy validate` before consequential repository operations.
+- Use individual commands for focused operations or a `custy run` profile for an ordered pipeline.
+- Place global options before the command, such as `custy --dry-run run release`.
+- Remember that dry-run can read real project and Git state and may write diagnostic logs, but intended project, Git, and remote mutations are simulated.
+
+### 🧰 For Contributors and Integrators
+
+- CLI presentation and core behavior are separated under `app/cli` and `app/core`.
+- Git services, pipeline steps, version strategies, changelog processing, initialization, cleanup, UI, and configuration expose focused responsibilities.
+- Smaller components and explicit protocols, services, factories, builders, presenters, and strategies make behavior easier to locate, test, replace, and extend.
+- Modular development tooling and documented architecture simplify local validation and release maintenance.
+
+### ⚠️ Upgrade Notes for 1.x Users
+
+- Python 3.14 or newer is required.
+- Replace `.custor.toml` with the generated `.config/custy/config.toml` configuration and review every generated value.
+- Review editable resources under `.config/custy/templates` before running commit or release workflows.
+- Replace `custy all` with `custy run release` or `custy run full` as appropriate.
+- Replace `custy commit-tag-bump` with focused commands or a supported `custy run` profile.
+- Replace `custy cleaned-backups` with `custy cleanup backups`.
+- Replace `custy clean-branches` with `custy cleanup branches`.
+- Use `custy changelog generate` for standalone changelog generation.
+- Update Git, release, dependency, and container references that still use the former PEP 440 tag notation.
+- Review `custy --help` and command-specific help before migrating automation.
+
+### ⚠️ Experimental Feature
+
+The `custy workflow` branch-policy command remains experimental. Its behavior
+may change in later releases, so use it cautiously and preview intended
+operations before allowing mutations.
+
+### ✅ Release Status
+
+- Version: `v2.0.0`
+- Previous version: `v2.0.0-rc.1`
+- Strategy: Semantic Versioning
+- Stability: Stable for supported commands; `custy workflow` remains experimental
+- Historical distribution: GitHub Releases and GHCR images restored
+- Historical tag convention: Normalized to SemVer
+
+Thank you for testing the release candidate and helping make Custy 2.0 ready
+for its stable release line.
+
+_Release: v2.0.0_
+_Author: Devalltect / Rizky Fernandes_

@@ -1,0 +1,42 @@
+release(main): 1.9.0
+
+Final release of **Custy 1.9.0**, promoted from the latest release candidate.
+Includes all feature and fixes from pre-releases:
+1.9.0rc2, 1.9.0rc1, 1.9.0b3, 1.9.0b2, 1.9.0b1.
+All functionality has been fully validated and production-ready.
+
+### ✨ Features
+- Redesigned CLI interface with support for silent/debug modes
+- Smart path resolution for configs and templates to prevent ambiguity
+- Improved commit/tag message template generation
+
+### 📚 Documentation
+- Rewritten and cleaned up `README.md`, `HOW_TO_USE.md`, and `docs/TODO.md`
+- Added badge list, regenerated project structure docs
+
+### ⚙️ CI/CD
+- GitHub Actions and GitLab CI pipelines now support testing and deployment
+- Makefile enhancements with silent execution support (`--no-debug`)
+
+### 🧹 Maintenance & Structure
+- Refactored and cleaned `app/` structure
+- Relocated and organized all templates
+- Code formatted with `ruff`
+
+### 🐛 Bug Fixes
+- Commit type now validated before version resolution
+- Fixed pipeline creation issues
+- Minor internal logic bugs resolved for better stability
+- `assert_is_final_version()` now gracefully handles pre-releases
+
+---
+
+🎉 **Custy v1.9.0 is now stable and ready for production use.**
+
+🔖 **Tags**:
+- Type: `#release`, `#bugfix`, `#refactor`, `#feature`
+- Docs: `#docs`, `#template`
+- CI/CD: `#ci`
+- Stability: `#stable`
+
+Changelog: handled separately

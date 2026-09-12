@@ -1,0 +1,37 @@
+🚀 Custy v2.1.0-rc.1 — Release Candidate
+
+Custy v2.1.0-rc.1 contains the planned 2.1.0 feature set and is available for
+final validation before stable promotion. Users and contributors should focus
+on compatibility, installation, packaging, documentation, and end-to-end
+release workflows rather than requesting new features.
+
+### 🌟 Highlights
+
+- [Describe the most important feature in the candidate.]
+- [Describe a major workflow, reliability, or safety improvement.]
+- [Describe a contributor, integration, or distribution improvement.]
+
+### 🐛 Fixes Since Beta
+
+- [Describe an important stabilization fix.]
+- [Describe a compatibility or edge-case correction.]
+
+### 🧪 Recommended RC Validation
+
+1. Install the candidate in an isolated environment.
+2. Review generated configuration and templates.
+3. Run `custy validate` in a non-production repository.
+4. Preview consequential workflows with the global `--dry-run` option.
+5. Verify files, Git state, tags, remotes, packages, containers, and documentation.
+6. Report release-blocking issues before stable promotion.
+
+### ⚠️ Candidate Status
+
+- This remains a prerelease until the stable tag is published.
+- Only release-blocking corrections should change the candidate scope.
+- Clearly identify any feature that will remain experimental in the stable release.
+
+_Release: v2.1.0-rc.1_
+_Target stable release: v2.1.0_
+_Strategy: Semantic Versioning_
+_Author: Devalltect / Rizky Fernandes_

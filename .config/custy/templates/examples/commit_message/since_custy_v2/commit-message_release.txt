@@ -1,0 +1,39 @@
+release(main): promote Custy v2.0.0
+
+Promote Custy from `v2.0.0-rc.1` to the stable `v2.0.0` release after the
+release-candidate review period.
+
+No new user-facing features or behavioral changes are introduced after RC.1.
+This commit finalizes repository housekeeping and preserves the completed 2.0
+development history before publishing the stable release.
+
+### 🧹 Release Finalization
+
+- Remove temporary root development notes and change-tracking scratch files.
+- Remove the completed root and version-specific TODO files.
+- Archive the v2.0.0 development scope, decisions, completed work, remaining ideas, and release checklist in `docs/TODO_tracking_history.md`.
+- Review the final repository contents so personal and temporary planning files are not included unintentionally.
+
+### ✅ Stable Promotion
+
+- Carry forward the complete feature, fix, refactor, test, automation, and documentation set validated during `v2.0.0-rc.1`.
+- Keep the public CLI, configuration schema, changelog output, dry-run behavior, pipeline profiles, and extension boundaries unchanged from RC.1.
+- Preserve the experimental status and warning for the `custy workflow` branch-policy feature.
+- Prepare the repository for the stable SemVer tag and public release publication.
+
+### 📦 Release Scope
+
+Custy 2.0 remains the major release that introduces the Typer and Rich CLI,
+namespaced configuration, composable pipelines, rebuilt changelog generator,
+safer Git and cleanup operations, consistent dry-run simulation, expanded test
+coverage, release automation, and English/Indonesian documentation delivered in
+the release candidate.
+
+Tag: v2.0.0
+Previous release: v2.0.0-rc.1
+Changelog: generated separately
+
+🔖 **Tags**:
+- Type: `#release`, `#maintenance`
+- Delivery: `#stable`, `#semver`, `#release`
+- Scope: `#repository-cleanup`, `#history-archive`

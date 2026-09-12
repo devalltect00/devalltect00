@@ -1,0 +1,9 @@
+🧪 Final Release 1.4.4
+
+Custy CLI v1.4.4 is now stable and production-ready. This release promotes all features and fixes from earlier pre-releases, including alpha and release candidate stages.
+
+### 🔍 Highlights
+
+- Refactor code using Ruff to enforce style and consistency.
+
+✅ This version is stable and suitable for production use.

@@ -1,0 +1,9 @@
+feat(auth): implement login feature with flash error handling
+
+Added login form with validation
+- Displayed flash message for failed login
+- Redirects to dashboard on success
+
+BREAKING CHANGE: Login route changed from /login-form to /auth/login
+
+Closes #42

@@ -1,0 +1,36 @@
+chore(release): prepare Custy v2.1.0-dev.1
+
+Create a development snapshot for the Custy 2.1.0 work cycle. This version is
+intended for maintainers, automated integration environments, and contributors
+who need a named checkpoint before the first alpha release.
+
+### 🚧 Work in Progress
+
+- [Describe the feature or refactor currently under development.]
+- [Describe partially integrated behavior or an internal API change.]
+- [Describe temporary compatibility or migration work.]
+
+### 🧪 Current Checks
+
+- [List tests and checks currently passing.]
+- [List known failures, missing coverage, or unverified platforms.]
+
+### 📌 Development Notes
+
+- [Record a decision, limitation, or follow-up required before alpha.]
+- [Identify temporary code, configuration, or documentation that must be revisited.]
+
+### ⚠️ Snapshot Status
+
+- `dev.1` is a project-defined SemVer prerelease identifier, not a stable release tier.
+- This snapshot may be incomplete, unstable, or unsuitable for general user testing.
+- Do not use it in production or depend on its current interfaces remaining unchanged.
+
+Tag: v2.1.0-dev.1
+Previous snapshot: [previous version]
+Next milestone: v2.1.0-alpha.1
+
+🔖 **Tags**:
+- Type: `#development`, `#work-in-progress`
+- Quality: `#integration`, `#testing`
+- Stability: `#dev`, `#snapshot`

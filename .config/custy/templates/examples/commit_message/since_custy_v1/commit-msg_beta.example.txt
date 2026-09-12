@@ -1,0 +1,44 @@
+refactor(core): 1.9.0b1 — improve CLI, docs, pipeline, templates, and structure
+
+Beta release for **Custy 1.9.0**, introducing mid-stage features and workflow improvements.
+Partially validated features and improvements. Some issue still remain.
+
+This update delivers improved CLI usability, updated documentation, better automation, refactored project structure, and improved message templates.
+
+### ✨ Features
+- Redesigned CLI interface with clearer UX and new arguments (e.g., silent/debug flags)
+- Enhanced file path resolution to avoid ambiguity for key config and template files
+
+### 📚 Documentation
+- Rewrote `README.md` and added badges (`docs/badges.md`)
+- Created user guide: `docs/HOW_TO_USE.md`
+- Regenerated project structure documentation
+
+### ⚙️ CI/CD
+- Added GitHub Actions workflow and GitLab CI pipeline to run tests on push
+
+### 🧹 Maintenance
+- Cleaned and refactored `app/` directory
+- Code formatted with `ruff`
+
+### 📄 Template Improvements
+- Reorganized and renamed `commit-msg.txt` and `tag-msg.txt` templates
+- Updated commit/tag message generation to use new structure
+
+### 🐛 Bug Fix
+- Fixed a minor internal bug affecting stability
+
+### 🛠️ Misc
+- Updated `Makefile`, `pyproject.toml`, and related config files
+- Removed unused file `q`
+
+---
+
+_Tag: `1.9.0b1`_
+
+---
+
+🔖 **Tags**:
+- Type: `#feature`, `#bugfix`, `#refactor`
+- Docs: `#docs`, `#template`
+- CI/CD: `#ci`, `#cleanup`

@@ -1,0 +1,2489 @@
+# ==========================================================
+# 🧾 Custy Configuration File
+# ==========================================================
+#
+# This file controls how Custy generates CHANGELOG.md.
+#
+# You can customize:
+# - Which commits are included
+# - How commit messages are cleaned
+# - How releases are rendered
+# - Special behavior for specific tags
+#
+# Future features may also use this file, so configuration
+# is grouped under [tool.custy.changelog.*]
+#
+# ==========================================================
+
+# ==========================================================
+# Main Config
+# ==========================================================
+
+[tool.custy]
+
+
+# =========================================================
+# 📦 PROJECT
+# =========================================================
+#
+# Project-level configuration used by
+# initialization, path resolution,
+# source discovery, and file generation.
+#
+# These values describe the project
+# structure itself rather than CLI
+# execution behaviour.
+#
+# =========================================================
+
+[tool.custy.project]
+
+# Primary source directory.
+#
+# Use "auto" to detect common Python, Node.js, and generic
+# repository layouts at command runtime. Automatic detection
+# checks conventional app/ and src/ directories, then safely
+# falls back to the project root.
+#
+# Examples:
+#
+#     auto
+#     app
+#     src
+#     backend
+#     services/api
+#
+# Used by:
+#
+#     custy init
+#     custy run
+#     path resolvers
+#     file generators
+#
+# Explicit directories are verified relative to the project
+# root. Automatic mode does not require an app/ directory.
+#
+project_source = "auto"
+
+
+# =========================================================
+# 🚀 RELEASE
+# =========================================================
+#
+# Release metadata used when generating:
+#
+#     CHANGELOG.md
+#     Release notes
+#     Tags
+#
+# =========================================================
+
+[tool.custy.release]
+
+# Default release author.
+#
+# Examples:
+#
+#     devalltect00
+#     john.doe
+#     automation-bot
+#
+author = "devalltect00"
+
+# Include release date in generated
+# changelog and release metadata.
+#
+# false:
+#     Version only
+#
+# true:
+#     Version + release date
+#
+include_date = true
+
+
+# =========================================================
+# CLI - 🏁 INITIALIZATION
+# =========================================================
+#
+# Default values used by:
+#
+#     custy init
+#
+# =========================================================
+
+[tool.custy.initialization]
+
+# Overwrite existing files without confirmation.
+force = false
+
+# Prompt before creating or overwriting files.
+ask = false
+
+
+# =========================================================
+# CLI - 📝 EDITOR
+# =========================================================
+#
+# Editor selection used for commit and tag message files.
+#
+# VISUAL and EDITOR are process environment variables, not TOML keys.
+# Custy does not create or persist them. A user, shell profile, operating
+# system, IDE, Docker/Compose service, or CI job may set them before Custy
+# starts. Custy inherits them from the process environment and reads them
+# when a workflow reaches its message-editing step.
+#
+# Exact editor-selection variable names accepted by Custy:
+#
+#     VISUAL     Primary environment editor command
+#     EDITOR     Secondary environment editor command
+#
+# Use the uppercase names exactly for portable behavior. Values may name a
+# trusted executable and optional arguments, for example:
+#
+#     VISUAL="code --wait"
+#     VISUAL="micro"
+#     EDITOR="nano"
+#     EDITOR="vim"
+#
+# PATH is related but does not select an editor: it lets Custy find the
+# executable named by an environment command or candidate identifier.
+# CUSTY_CONTAINER is an image/runtime marker that selects the container list;
+# it is not an editor command and normally does not need to be set manually.
+#
+# Empty or undefined VISUAL/EDITOR values are skipped. Environment commands
+# are executed without a shell, but should still be treated as trusted input.
+#
+# Resolution order:
+#
+#     1. VISUAL, then EDITOR, when prefer_environment = true
+#     2. The active container or operating-system candidate list
+#     3. Matching built-in defaults when allow_fallback = true
+#
+# Candidate values are stable identifiers, not shell commands.
+# Supported:
+#
+#     vscode, notepad, micro, nano, vim, vi, neovim
+#
+# Behavior combinations:
+#
+#     prefer_environment = true,  allow_fallback = true
+#         Environment -> configured candidates -> built-in defaults
+#
+#     prefer_environment = true,  allow_fallback = false
+#         Environment -> configured candidates only
+#
+#     prefer_environment = false, allow_fallback = true
+#         Configured candidates -> built-in defaults
+#
+#     prefer_environment = false, allow_fallback = false
+#         Configured candidates only
+#
+# =========================================================
+
+[tool.custy.editor]
+
+# Honor VISUAL and EDITOR before the configured candidate lists.
+prefer_environment = true
+
+# Append Custy's safe platform defaults after configured candidates.
+# Set false when only the listed candidates should be considered.
+allow_fallback = true
+
+[tool.custy.editor.candidates]
+
+# Windows host preference. "vscode" resolves to "code --wait".
+windows = ["vscode", "notepad"]
+
+# Native Linux host preference.
+linux = ["micro", "nano", "vim", "vi"]
+
+# Native macOS host preference.
+macos = ["vscode", "micro", "nano", "vim", "vi"]
+
+# Docker and other detected container environments.
+# Desktop editors on the host cannot be opened directly by a normal
+# isolated Linux container, so use terminal editors here.
+container = ["nano", "vim", "vi", "micro"]
+
+
+# =========================================================
+# COMMIT MESSAGE VALIDATION
+# =========================================================
+#
+# Custy's built-in validator works without optional tools.
+# Commitizen is enabled only according to the provider rules below.
+#
+# Behavior matrix:
+#
+#     provider     Commitizen config     cz command     Result
+#     --------     -----------------     ----------     ----------------------
+#     auto         absent                any            Custy validation
+#     auto         present               present        Custy + Commitizen
+#     auto         present               absent         Warn, then Custy
+#     custy        any                   any            Custy validation only
+#     commitizen   present               present        Custy + Commitizen
+#     commitizen   absent/invalid        any            Fail before mutation
+#     git          any                   any            Basic file checks only
+#
+# With provider = "auto", require_tool = true changes unavailable or
+# invalid detected Commitizen integration from a warning into an error.
+#
+# Installing `cz` alone does not activate Commitizen. A recognized project
+# configuration must also exist: .cz.toml, .cz.yaml, .cz.yml, .cz.json, or
+# [tool.commitizen] in pyproject.toml.
+#
+# Version strategy and commit-message validation are independent. For example,
+# strategy = "semver" can still use provider = "commitizen".
+#
+# =========================================================
+
+[tool.custy.commit.validation]
+
+# Available: "auto", "custy", "commitizen", "git".
+provider = "auto"
+
+# false:
+#     Optional auto-detection failures warn and fall back to Custy.
+#
+# true:
+#     A detected but unavailable or invalid external provider is fatal.
+require_tool = false
+
+
+
+# ---------------------------------------------------------
+# CLI Related
+# ---------------------------------------------------------
+#
+# Related to CLI as default value
+#
+# ---------------------------------------------------------
+
+# =========================================================
+# CLI - 🏷️ VERSIONING
+# =========================================================
+#
+# Default values used by:
+#
+#     custy commit
+#     custy tag
+#     custy release
+#
+# =========================================================
+
+[tool.custy.cli.versioning]
+
+# Versioning strategy.
+#
+# Available:
+#
+#     semver
+#     pep440
+#     commitizen
+#     date
+#     gitcount
+#
+# Remove or comment this value to allow
+# automatic project strategy detection.
+#
+strategy = "semver"
+
+# Default bump strategy.
+#
+# Available:
+#
+#     auto
+#     patch
+#     minor
+#     major
+#
+bump = "auto"
+
+
+# =========================================================
+# CLI - 📄 TEMPLATE FILES
+# =========================================================
+#
+# Template files used by Custy when generating
+# commit messages, release messages, and changelogs.
+#
+# These values are used as defaults when
+# corresponding CLI options are not supplied.
+#
+# Used by:
+#
+#     custy commit
+#     custy tag
+#     custy changelog
+#     custy run
+#
+# =========================================================
+
+[tool.custy.cli.templates.file]
+
+# Changelog template file.
+#
+# Supported:
+#
+#     Jinja2 (.j2)
+#
+# Examples:
+#
+#     .config/custy/templates/changelog/changelog.j2
+#     tools/custy/templates/changelog/changelog.j2
+#     templates/changelog.j2
+#
+changelog = ".config/custy/templates/changelog/changelog.j2"
+
+# Commit message template.
+#
+# Used when generating commit messages
+# for automated commit workflows.
+#
+# Examples:
+#
+#     .config/custy/templates/commit-message.txt
+#     tools/custy/templates/commit-message.txt
+#     templates/commit-message.txt
+#
+commit_message = ".config/custy/templates/commit-message.txt"
+
+# Tag message template.
+#
+# Used when generating annotated Git tags.
+#
+# Examples:
+#
+#     .config/custy/templates/tag-message.txt
+#     tools/custy/templates/tag-message.txt
+#     templates/tag-message.txt
+#
+tag_message = ".config/custy/templates/tag-message.txt"
+
+
+# =========================================================
+# CLI - 📂 TEMPLATE DIRECTORIES
+# =========================================================
+#
+# Directories containing template backups
+# and generated template resources.
+#
+# These locations are used when storing
+# template snapshots or backup copies.
+#
+# =========================================================
+
+[tool.custy.cli.templates.directory]
+
+# Directory containing commit message backups.
+#
+# Examples:
+#
+#     .config/custy/templates/backups/commit
+#     tools/custy/templates/backups/commit
+#     backups/commit
+#
+backups_commit = ".config/custy/templates/backups/commit"
+
+# Directory containing tag message backups.
+#
+# Examples:
+#
+#     .config/custy/templates/backups/tag
+#     tools/custy/templates/backups/tag
+#     backups/tag
+#
+backups_tag = ".config/custy/templates/backups/tag"
+
+
+# =========================================================
+# 📂 PROJECT PATHS
+# =========================================================
+#
+# Runtime project paths used by
+# version discovery and updates.
+#
+# Or just path configuration
+#
+# =========================================================
+
+[tool.custy.cli.paths]
+
+# Version metadata target updated during:
+#
+#     custy version update
+#     custy commit
+#     custy tag
+#     custy run release
+#     custy run full
+#
+# Use "auto" to detect an existing Python __version__.py,
+# pyproject.toml project version, or package.json version.
+# Projects without supported metadata remain valid and use
+# Git-tag-only versioning unless an explicit file is configured.
+#
+# Examples:
+#
+#     auto
+#     app/__version__.py
+#     src/package/__version__.py
+#     pyproject.toml
+#     package.json
+#
+version_file = "auto"
+
+
+# =========================================================
+# CLI - 🚀 EXECUTION
+# =========================================================
+#
+# Global execution behaviour.
+#
+# These values affect most CLI commands when
+# corresponding options are not supplied.
+#
+# Used by:
+#
+#     custy init
+#     custy validate
+#     custy commit
+#     custy tag
+#     custy push
+#     custy version update
+#     custy changelog generate
+#     custy backup
+#     custy cleanup
+#     custy run
+#     custy run dev
+#     custy run release
+#     custy run full
+#     custy workflow branch
+#
+# =========================================================
+
+[tool.custy.cli.execution]
+
+# Enable dry-run mode.
+#
+# false:
+#     Execute normally.
+#
+# true:
+#     Preview commands without applying their
+#     intended project, Git, or remote changes.
+#
+#     Read-only discovery may still run, including
+#     file inspection, Git queries, and remote queries.
+#
+#     File writes, deletions, editor launches, Git
+#     mutations, and remote mutations are simulated.
+#
+#     Normal diagnostic logs may still be written.
+#
+dry_run = false
+
+# Force commit creation even when
+# validation checks fail.
+#
+force_commit = false
+
+# Force tag creation even when
+# version validation or workflow
+# checks fail.
+#
+force_tag = false
+
+# Skip validation checks.
+#
+# Examples:
+#
+#     Git repository validation
+#     Version validation
+#     Workflow validation
+#
+skip_checks = false
+
+# Disable debug logging.
+#
+# false:
+#     Debug logging enabled.
+#
+# true:
+#     Debug logging disabled.
+#
+no_debug = true
+
+# Automatically stage files before commit.
+#
+# Equivalent to:
+#
+#     git add
+#
+auto_stage = false
+
+# Git staging mode.
+#
+# Available:
+#
+#     all
+#         Stage all tracked and untracked files.
+#
+#     update
+#         Stage modified and deleted files only.
+#
+stage_mode = "all"
+
+# Backward-compatible CLI default for --check-cz.
+# true explicitly requires Commitizen for commit-message validation.
+# Prefer tool.custy.commit.validation for new configuration.
+#
+check_cz = false
+
+
+# =========================================================
+# CLI - 🚀 PUSH
+# =========================================================
+#
+# Default values used by:
+#
+#     custy push
+#
+# =========================================================
+
+[tool.custy.cli.push]
+
+# Push to all configured remotes.
+#
+#false:
+#    Select remotes through tool.custy.git.push_to.
+#
+# true:
+#     Push to all configured remotes.
+#
+all_remote = true
+
+# Skip tag push operation.
+#
+# false:
+#     Push commits and tags.
+#
+# true:
+#     Push commits only.
+#
+skip_tag = false
+
+#Synchronize backup repositories after push.
+#
+#false:
+#    Do not add backups to a main-only selection.
+#    Backups can still be selected by all_remote
+#    or tool.custy.git.push_to.
+#
+#true:
+#    Add configured backup remotes to a
+#    main-only selection when branch safety permits.
+#
+sync_backup = false
+
+
+# =========================================================
+# CLI - 📝 CHANGELOG
+# =========================================================
+#
+# Default values used by:
+#
+#     custy changelog
+#
+# =========================================================
+
+[tool.custy.cli.changelog]
+
+# Force changelog generation even when
+# no new releases or commits are detected.
+#
+force_generation = false
+
+
+# =========================================================
+# CLI - 🧹 CLEANUP - BACKUPS
+# =========================================================
+#
+# Default values used by:
+#
+#     custy cleanup backup
+#
+# =========================================================
+
+[tool.custy.cli.cleanup.backup]
+
+# Backup cleanup mode.
+#
+# Available:
+#
+#     all
+#         Remove both commit and tag backups.
+#
+#     commit
+#         Remove commit backups only.
+#
+#     tag
+#         Remove tag backups only.
+#
+type = "all"
+
+# Number of most recent backups to keep.
+#
+# Older backups will be removed.
+#
+keep = 10
+
+# =========================================================
+# CLI - 🌿 CLEANUP - BRANCHES
+# =========================================================
+#
+# Default values used by:
+#
+#     custy cleanup branch
+#
+# =========================================================
+
+[tool.custy.cli.cleanup.branch]
+
+# Branch name prefix filter.
+#
+# Only branches beginning with one of the configured prefixes
+# will be considered.
+#
+# Multiple prefixes are supported.
+#
+# Examples:
+#
+# include_prefixes = [
+#   "feature/",
+#   "release/",
+#   "hotfix/",
+# ]
+#
+# Uncomment to enable.
+#
+# When this option is left empty,
+# no branches will be selected for cleanup.
+#
+# Protected branches are never deleted,
+# even if they match one of the configured prefixes.
+#
+# Default protected branches:
+#
+#   • main
+#   • master
+#   • develop
+#
+# Example:
+#
+# include_prefixes = [
+#   "release/",
+#   "ci/",
+#   "old/",
+# ]
+#
+# or disable branch cleanup:
+#
+# include_prefixes = []
+#
+include_prefixes = []
+
+# Branch merge status filter.
+#
+# Available values:
+#
+#     merged
+#         Only merged branches.
+#
+#     unmerged
+#         Only unmerged branches.
+#
+#     all
+#         Consider every branch.
+#
+merge_status = "merged"
+
+# Relative branch age filter.
+#
+# Only branches whose latest commit is older than the
+# specified duration will be considered.
+#
+# Supported units:
+#
+#     m   minutes
+#     h   hours
+#     d   days
+#     w   weeks
+#     mo  months
+#     y   years
+#
+# Examples:
+#
+#     30d
+#     2w
+#     6mo
+#     1y
+#
+# Uncomment to enable.
+#
+# max_age = "30d"
+
+# Absolute branch date filter.
+#
+# Only branches whose latest commit occurred before the
+# specified date will be considered.
+#
+# Format:
+#
+#     YYYY-MM-DD
+#
+# Example:
+#
+#     2026-07-01
+#
+# This option is mutually exclusive with
+# "max_age".
+#
+# Uncomment to enable.
+#
+# before = "2026-07-01"
+
+
+# =========================================================
+# CLI - 🔄 WORKFLOW
+# =========================================================
+#
+# Default values used by:
+#
+#     custy workflow
+#
+# These settings control branch and tag
+# workflow validation, transition checks,
+# and workflow strategy enforcement.
+#
+# Examples:
+#
+#     develop -> main
+#     main -> release
+#     v1.0.0a1 -> v1.0.0b1
+#     v1.0.0rc1 -> v1.0.0
+#
+# =========================================================
+
+[tool.custy.cli.workflow]
+
+# Enforce workflow strategy rules.
+#
+# Examples:
+#
+#     Branch strategy validation
+#     Release workflow validation
+#     Tag workflow validation
+#
+# false:
+#     Report workflow information only.
+#
+# true:
+#     Enforce workflow rules and
+#     reject invalid transitions.
+#
+enforce = false
+
+# Validate branch and tag transitions.
+#
+# Examples:
+#
+#     develop -> main
+#     feature/x -> develop
+#     v1.0.0a1 -> v1.0.0b1
+#     v1.0.0rc1 -> v1.0.0
+#
+# false:
+#     Skip transition validation.
+#
+# true:
+#     Validate workflow transitions.
+#
+check_transition = false
+
+# Synchronize backup repositories after
+# workflow operations complete.
+#
+# Examples:
+#
+#     backup
+#     mirror
+#     github-backup
+#
+sync_backup = false
+
+
+# =========================================================
+# 📝 LOGGING
+# =========================================================
+#
+# Logging configuration used throughout
+# the Custy application.
+#
+# These settings control console output,
+# debug visibility, and file logging.
+#
+# =========================================================
+
+[tool.custy.logging]
+
+# Available:
+#
+#     DEBUG
+#     INFO
+#     WARNING
+#     ERROR
+#     CRITICAL
+#
+level = "INFO"
+
+# Enable Rich markup support.
+#
+# Example:
+#
+#     [green]Success[/green]
+#
+markup = true
+
+# Enable Rich tracebacks.
+#
+# Provides enhanced exception output
+# with source context and formatting.
+#
+rich_tracebacks = true
+
+# Display timestamps in console logs.
+#
+show_time = false
+
+# Display log level in console logs.
+#
+show_level = false
+
+# Console log format.
+#
+# Examples:
+#
+#     "%(message)s"
+#     "%(levelname)s | %(message)s"
+#
+console_format = "%(message)s"
+
+
+# =========================================================
+# 📄 FILE LOGGING
+# =========================================================
+#
+# Persistent log file configuration.
+#
+# These settings control log storage,
+# rotation, and retention.
+#
+# =========================================================
+
+[tool.custy.logging.file]
+
+# Available:
+#
+#     DEBUG
+#     INFO
+#     WARNING
+#     ERROR
+#     CRITICAL
+#
+# Defaults to the application's
+# logging level when omitted.
+#
+level = "DEBUG"
+
+# Directory where log files are stored.
+#
+# Examples:
+#
+#     logs
+#     var/log
+#     .custy/logs
+#
+log_dir = "logs"
+
+# Log filename.
+#
+# Examples:
+#
+#     app.log
+#     custy.log
+#     debug.log
+#
+log_file = "custy.log"
+
+# Maximum file size before rotation.
+#
+# Examples:
+#
+#     10KB
+#     10MB
+#     100MB
+#     1GB
+#
+max_bytes = "10MB"
+
+# Number of rotated log files to keep.
+#
+# Example:
+#
+#     app.log
+#     app.log.1
+#     app.log.2
+#     app.log.3
+#
+backup_count = 5
+
+# File log format.
+#
+# Available variables:
+#
+#     %(asctime)s
+#     %(levelname)s
+#     %(name)s
+#     %(message)s
+#
+file_format = "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
+
+
+# =========================================================
+# 📝 CHANGELOG
+# =========================================================
+#
+# Configuration used by Custy to collect,
+# preprocess, organize, and render the
+# project's CHANGELOG.md.
+#
+# These settings control every stage of
+# changelog generation, from commit
+# collection through preprocessing (parsing, cleaning, etc),
+# release processing, grouping,
+# formatting, and final rendering.
+#
+# Changelog generation pipeline:
+#
+#     Commit Collection
+#         ↓
+#     Preprocessing
+#         ↓
+#     Release Processing
+#         ↓
+#     Grouping
+#         ↓
+#     Rendering
+#         ↓
+#     CHANGELOG.md
+#
+# Used by:
+#
+#     custy changelog
+#     custy commit
+#     custy run dev
+#     custy run release
+#     custy run full
+#
+# =========================================================
+
+
+# =========================================================
+# CHANGELOG - ⚙️ CORE SETTINGS
+# =========================================================
+#
+# Core changelog generation rules.
+#
+# These settings determine which commits
+# are eligible for changelog generation
+# before preprocessing, grouping,
+# rendering, or release processing
+# occurs.
+#
+# =========================================================
+
+[tool.custy.changelog.core]
+
+
+# =========================================================
+# COMMIT COLLECTION
+# =========================================================
+
+# Ignore Git merge commits.
+#
+# Merge commits usually describe branch
+# integration rather than user-facing
+# changes, so they are commonly excluded
+# from the generated changelog.
+#
+# Examples:
+#
+#     Merge branch 'main' into 'develop'
+#     Merge branch 'release' into 'main'
+#     Merge pull request #42
+#
+ignore_merge_commits = true
+
+
+# Ignore specific Conventional Commit
+# types completely.
+#
+# Matching commits are excluded before
+# preprocessing or rendering begins.
+#
+# Examples:
+#
+#     ["chore"]
+#     ["docs", "chore"]
+#     ["test", "build"]
+#
+# Only commits whose type matches one of
+# these values will be ignored.
+#
+ignore_types = [
+    "chore",
+]
+
+
+# =========================================================
+# CHANGELOG - 🧾 PENDING COMMIT
+# =========================================================
+#
+# Controls how the pending commit template is
+# integrated into the generated changelog.
+#
+# The pending commit represents the next commit
+# that has not yet been committed into Git.
+#
+# =========================================================
+
+[tool.custy.changelog.pending_commit]
+
+# Enable pending commit integration.
+#
+# false:
+#     Ignore the pending commit template.
+#
+# true:
+#     Include the pending commit during
+#     changelog generation.
+#
+enabled = true
+
+# Generation strategy.
+#
+# Available:
+#
+#     append
+#         Generate only the pending commit and
+#         append it to the generated changelog.
+#
+#     regenerate
+#         Regenerate the complete changelog from
+#         Git history before integrating the
+#         pending commit.
+#
+generation = "regenerate"
+
+# Placement of the pending commit.
+#
+# Available:
+#
+#     before
+#         Place the pending commit before all
+#         generated releases.
+#
+#     after
+#         Place the pending commit after all
+#         generated releases.
+#
+placement = "before"
+
+
+# =========================================================
+# CHANGELOG - 🧹 CLEANING RULES
+# =========================================================
+#
+# Rules used during changelog preprocessing
+# to remove unwanted content before commit
+# messages are grouped and rendered.
+#
+# Cleaning affects presentation only.
+#
+# It does NOT modify:
+#
+#     • Git history
+#     • commit messages
+#     • release messages
+#
+# Instead, it removes unnecessary content
+# from the generated CHANGELOG.md.
+#
+# =========================================================
+
+[tool.custy.changelog.cleaning]
+
+
+# =========================================================
+# MARKDOWN
+# =========================================================
+
+# Remove Markdown separator lines.
+#
+# Examples:
+#
+#     ---
+#     ***
+#     ===
+#
+remove_separators = [
+    "---",
+]
+
+
+# Remove Markdown headings.
+#
+# Examples:
+#
+#     # Heading
+#     ## Heading
+#     ### Heading
+#     #### Heading
+#
+# This is primarily used to avoid
+# duplicating headings that already
+# exist in the generated changelog.
+#
+remove_headers = false
+
+
+# Remove comment-style lines beginning
+# with '#'.
+#
+# Commonly used to remove template
+# comments or placeholder text.
+#
+remove_hash_lines = false
+
+
+# =========================================================
+# RELEASE CONTENT
+# =========================================================
+
+# Remove automatically generated release
+# summary paragraphs.
+#
+# Examples:
+#
+#     Final release of Custy...
+#
+#     Includes all features and fixes...
+#
+#     All functionality has been fully
+#     validated and production-ready.
+#
+# This keeps the generated changelog
+# focused on the actual changes rather
+# than release narrative.
+#
+remove_release_summary = false
+
+
+# =========================================================
+# METADATA
+# =========================================================
+
+# Remove release metadata.
+#
+# Examples:
+#
+#     Type:
+#     Stability:
+#     Workflow:
+#     Maintenance:
+#
+# Metadata can be rendered separately
+# by the renderer when enabled.
+#
+remove_metadata = false
+
+
+# =========================================================
+# KEYWORD FILTERING
+# =========================================================
+
+# Remove lines containing any of the
+# configured keywords.
+#
+# Matching is case-sensitive.
+#
+# This is useful for removing project-
+# specific boilerplate that should not
+# appear inside the generated
+# CHANGELOG.md.
+#
+remove_keywords = [
+    "Changelog:",
+    "- *(Nothing yet)* — See tag message for full context.",
+    "- _(Nothing yet)_",
+]
+
+
+# =========================================================
+# CHANGELOG - 🚀 RELEASE PROCESSING
+# =========================================================
+#
+# Controls how release commits are processed
+# before they are rendered into the generated
+# CHANGELOG.md.
+#
+# These settings apply only to release commits
+# and do not affect normal Conventional Commit
+# entries.
+#
+# =========================================================
+
+[tool.custy.changelog.release]
+
+
+# =========================================================
+# RELEASE SUMMARY
+# =========================================================
+
+# Extract only Markdown list items from
+# release summaries.
+#
+# Example:
+#
+#     release(main): 1.10.13
+#
+#     Final release of Custy...
+#
+#     - Improved workflow validation
+#     - Added repository synchronization
+#     - Updated documentation
+#
+# Result:
+#
+#     • Improved workflow validation
+#     • Added repository synchronization
+#     • Updated documentation
+#
+# Narrative text before the first list
+# item will be ignored.
+#
+extract_bullets_only = true
+
+
+# =========================================================
+# FALLBACK
+# =========================================================
+
+# Fallback behavior when no Markdown list
+# items are found.
+#
+# false
+#
+#     Skip this release entry.
+#
+# true
+#
+#     Use the release summary or commit
+#     subject instead.
+#
+# This is useful for projects that use
+# short release commits without detailed
+# bullet lists.
+#
+fallback_to_subject = true
+
+
+# =========================================================
+# CHANGELOG - 🎯 RELEASE BEHAVIOR
+# =========================================================
+#
+# Customize how individual releases are
+# rendered inside the generated CHANGELOG.md.
+#
+# These rules are applied after:
+#
+#     • commit collection
+#     • preprocessing
+#     • grouping
+#     • metadata extraction
+#     • release generation
+#
+# Use this section to:
+#
+#     • Hide a release completely
+#     • Show only the release heading
+#     • Replace generated release notes
+#       with custom content
+#
+# Each release version may define its own
+# rendering behaviour independently.
+#
+# =========================================================
+
+[tool.custy.changelog.release_behavior]
+
+
+# =========================================================
+# AVAILABLE OPTIONS
+# =========================================================
+#
+# hidden
+#
+#     Completely exclude this release from
+#     the generated CHANGELOG.md.
+#
+#
+# title_only
+#
+#     Render only the release heading.
+#
+#     Example:
+#
+#         ## 1.10.13 (2026-04-01)
+#
+#
+# custom_message
+#
+#     Replace the automatically generated
+#     release summary with custom content.
+#
+#     The generated commit groups
+#     (Features, Bug Fixes, Documentation,
+#     etc.) will still be rendered unless
+#     hidden is enabled.
+#
+# =========================================================
+
+
+# =========================================================
+# INVALID FORMAT
+# =========================================================
+#
+# TOML inline tables do not support
+# multi-line strings.
+#
+# The following configuration is INVALID
+# and will fail to parse.
+#
+# Example:
+#
+# "1.10.13" = {
+#     custom_message = """
+#     Fix branching alignment and repository
+#     history consistency after recovery.
+#
+#     Ensures main, develop, and backup branches are synchronized.
+#     """
+# }
+#
+# =========================================================
+
+
+# =========================================================
+# VALID FORMAT (SHORT MESSAGE)
+# =========================================================
+#
+# Suitable for a short single-line custom
+# release summary.
+#
+# Example:
+#
+# "1.10.13" = {
+#     custom_message = "Repository synchronization improvements."
+# }
+#
+# or
+#
+# "1.10.13" = {
+#     custom_message = """Fix branching alignment and repository history consistency after recovery.\n\nEnsures main, develop, and backup branches are synchronized."""
+# }
+#
+# =========================================================
+
+
+# =========================================================
+# VALID FORMAT (MULTI-LINE MESSAGE)
+# =========================================================
+#
+# Recommended for longer release summaries.
+#
+# Each release is represented as its own
+# TOML subsection under:
+#
+#     tool.custy.changelog.release_behavior
+#
+# =========================================================
+#
+# [tool.custy.changelog.release_behavior."1.10.13"]
+#
+# custom_message = """
+# Fix branching alignment and repository
+# history consistency after recovery.
+#
+# Ensures main, develop, and backup
+# branches are synchronized.
+# """
+#
+# =========================================================
+# EXAMPLE CONFIGURATION
+# =========================================================
+
+[tool.custy.changelog.release_behavior."1.10.13"]
+
+# Hide this release completely.
+#
+# hidden = true
+
+
+# Render only the release heading.
+#
+# title_only = true
+
+
+# Replace the generated release summary.
+#
+custom_message = """
+Fix branching alignment and repository history consistency after recovery.
+
+Ensures main, develop, and backup branches are synchronized.
+"""
+
+# =========================================================
+# MORE EXAMPLES
+# =========================================================
+#
+# Hide a release:
+#
+# [tool.custy.changelog.release_behavior."1.10.12"]
+#
+# hidden = true
+#
+#
+# Show only the release heading:
+#
+# [tool.custy.changelog.release_behavior."1.10.11"]
+#
+# title_only = true
+#
+#
+# Replace only the summary:
+#
+# [tool.custy.changelog.release_behavior."1.10.10"]
+#
+# custom_message = """
+# Internal maintenance release.
+# """
+#
+
+
+# =========================================================
+# CHANGELOG - 🔗 LINKS
+# =========================================================
+#
+# Repository information used when
+# generating links inside the generated
+# CHANGELOG.md.
+#
+# These settings control URLs for release
+# comparisons and other repository-related
+# references.
+#
+# =========================================================
+
+[tool.custy.changelog.links]
+
+
+# =========================================================
+# REPOSITORY
+# =========================================================
+
+# Repository browser URL used only for
+# changelog comparison links.
+#
+# This setting does not select a Git remote
+# and is not used by ``custy push``. Configure
+# operational remote names under
+# ``[tool.custy.git]`` instead.
+#
+# Leave the value empty until the project
+# repository URL is known. Use an HTTP or HTTPS
+# browser URL and do not include a trailing slash.
+#
+# Examples:
+#
+#     https://github.com/org/project
+#     https://gitlab.com/org/project
+#     https://codeberg.org/org/project
+#
+repository = "https://github.com/devalltect00/devalltect00"
+
+
+# =========================================================
+# COMPARE LINKS
+# =========================================================
+
+# Generate version comparison links.
+#
+# Example:
+#
+#     1.10.12
+#
+# Generates:
+#
+#     https://github.com/org/project/compare/1.10.11...1.10.12
+#
+# false
+#
+#     Do not generate compare links.
+#
+# true
+#
+#     Display compare links beneath each
+#     release heading. Set ``repository`` to the
+#     real project repository URL first.
+#
+enable_compare = true
+
+
+# =========================================================
+# CHANGELOG - 🎨 RENDERING
+# =========================================================
+#
+# Controls how the generated CHANGELOG.md
+# is presented.
+#
+# These settings affect presentation only.
+#
+# They do NOT modify:
+#
+#     • Git history
+#     • commit messages
+#     • commit parsing
+#     • commit grouping
+#     • metadata extraction
+#     • preprocessing
+#     • release processing
+#
+# Instead, they control how the generated
+# changelog is rendered.
+#
+# =========================================================
+
+[tool.custy.changelog.render]
+
+
+# =========================================================
+# GENERAL
+# =========================================================
+
+# Display the changelog title.
+#
+# Example:
+#
+#     # 🧾 Changelog
+#
+show_title = true
+
+
+# Display the changelog description.
+#
+# Example:
+#
+#     All notable changes...
+#
+show_description = true
+
+
+# Display the release status.
+#
+# Examples:
+#
+#     Stable Release
+#     Beta
+#     Alpha
+#     Release Candidate
+#
+show_release_status = true
+
+
+# Display the release summary.
+#
+show_summary = true
+
+
+# Display promoted pre-release versions.
+#
+# Example:
+#
+#     Promoted From
+#
+#         • 1.10.6rc4
+#         • 1.10.6rc3
+#
+show_promoted_from = true
+
+
+# Display compare links.
+#
+# Example:
+#
+#     Compare changes
+#
+show_compare_link = true
+
+
+# =========================================================
+# LAYOUT
+# =========================================================
+
+# Group commits by scope.
+#
+# true
+#
+#     ### 🐛 Bug Fixes
+#
+#     #### workflow
+#
+#         • ...
+#
+# false
+#
+#     ### 🐛 Bug Fixes
+#
+#         • ...
+#         • ...
+#
+group_by_scope = true
+
+# Collapse generic scopes that add no useful subsection
+# information to the rendered changelog.
+collapse_generic_scopes = true
+
+# Scope names treated as generic after scope mapping.
+generic_scopes = [
+    "",
+    "main",
+    "core",
+    "general",
+    "default",
+    "root",
+    "changelog",
+    "release",
+]
+
+
+# Remove duplicate changelog entries.
+#
+# Useful when release summaries and commit
+# messages contain overlapping content.
+#
+deduplicate = true
+
+
+# Display empty sections.
+#
+# false
+#
+#     Hide all empty sections.
+#
+# true
+#
+#     Display empty sections unless a more
+#     specific option overrides the behavior.
+#
+show_empty_sections = false
+
+
+# Display empty commit groups.
+#
+# Example:
+#
+#     ### 🧪 Tests
+#
+# even if no commits exist.
+#
+show_empty_groups = false
+
+
+# Display empty scopes.
+#
+show_empty_scopes = false
+
+
+# Display an empty metadata section.
+#
+show_empty_metadata = false
+
+
+# Display an empty tags section.
+#
+show_empty_tags = false
+
+
+# =========================================================
+# SECTIONS - METADATA
+# =========================================================
+
+# Display release metadata.
+#
+show_metadata = true
+
+
+# Display grouped tags.
+#
+show_tags = true
+
+
+# Display contributors.
+#
+# Future feature.
+#
+show_contributors = false
+
+
+# Display release statistics.
+#
+# Future feature.
+#
+# Example:
+#
+#     Statistics
+#
+#         • Features: 12
+#         • Bug Fixes: 8
+#
+show_statistics = false
+
+
+# =========================================================
+# FORMATTING
+# =========================================================
+
+# Character used for list items.
+#
+# Examples:
+#
+#     "-"
+#     "*"
+#     "•"
+#
+bullet = "-"
+
+
+# Number of leading spaces before each
+# bullet item.
+#
+# Example:
+#
+#         • Added workflow validation.
+#
+indent = 0
+
+
+# Number of blank lines inserted between
+# release sections.
+#
+# Increase this value to add more vertical
+# spacing between releases.
+#
+# Examples:
+#
+#     0
+#         No blank line.
+#
+#     1
+#         One blank line.
+#
+#     2
+#         Two blank lines. (recommended)
+#
+blank_lines_between_releases = 2
+
+
+# Number of blank lines inserted between
+# commit type groups.
+#
+# Increase this value to add more spacing
+# between commit type sections.
+#
+# Examples:
+#
+#     ### ✨ Features
+#         ...
+#
+#
+#     ### 🐛 Bug Fixes
+#         ...
+#
+# Examples:
+#
+#     0
+#         No blank line.
+#
+#     1
+#         One blank line. (recommended)
+#
+#     2
+#         Two blank lines.
+#
+blank_lines_between_commit_groups = 1
+
+
+# =========================================================
+# SORTING
+# =========================================================
+
+# Sort commit groups alphabetically.
+#
+# false
+#
+#     Preserve the original commit order.
+#
+# true
+#
+#     Sort groups alphabetically.
+#
+sort_groups = false
+
+
+# Sort scopes alphabetically.
+#
+# false
+#
+#     Preserve the original scope order.
+#
+# true
+#
+#     Sort scopes alphabetically.
+#
+sort_scopes = true
+
+
+# Sort individual items alphabetically.
+#
+# false
+#
+#     Preserve the original item order.
+#
+# true
+#
+#     Sort items alphabetically.
+#
+sort_items = false
+
+
+# =========================================================
+# VISUAL
+# =========================================================
+
+# Display icons in section titles.
+#
+# true
+#
+#     ### 🐛 Bug Fixes
+#
+# false
+#
+#     ### Bug Fixes
+#
+show_section_icons = true
+
+
+# Display the changelog footer.
+#
+# Future feature.
+#
+# Example:
+#
+#     Generated by Custy
+#
+show_footer = false
+
+
+# =========================================================
+# CHANGELOG - ⚠️ BREAKING CHANGES
+# =========================================================
+#
+# Configuration for detecting and rendering
+# breaking changes.
+#
+# Breaking changes are commits that introduce
+# backward-incompatible behavior.
+#
+# These entries are automatically grouped into
+# a dedicated "Breaking Changes" section.
+#
+# =========================================================
+
+[tool.custy.changelog.breaking]
+
+# Enable breaking change detection.
+#
+# false
+#
+#     Ignore all breaking change markers.
+#
+# true
+#
+#     Detect and render breaking changes.
+#
+enabled = true
+
+
+# Keywords used to identify breaking
+# changes within commit messages.
+#
+# Matching is case-insensitive.
+#
+# Example:
+#
+#     BREAKING CHANGE
+#     BREAKING
+#     INCOMPATIBLE
+#
+keywords = [
+    "BREAKING CHANGE",
+    "BREAKING",
+    "INCOMPATIBLE",
+]
+
+
+# Section title displayed inside the
+# generated CHANGELOG.md.
+#
+# Examples:
+#
+#     ⚠️ Breaking Changes
+#     Breaking Changes
+#     💥 Breaking Changes
+#
+label = "⚠️ Breaking Changes"
+
+
+# =========================================================
+# CHANGELOG - 🧭 SCOPE MAPPING
+# =========================================================
+#
+# Maps commit scopes to display names used
+# in the generated CHANGELOG.md.
+#
+# Scope mapping affects presentation only.
+#
+# It does NOT modify:
+#
+#     • the original commit message
+#     • Git history
+#     • commit parsing
+#     • commit classification
+#
+# Instead, it provides friendly names for
+# scopes when rendering the changelog.
+#
+# =========================================================
+
+[tool.custy.changelog.scope_map]
+
+
+# =========================================================
+# FORMAT
+# =========================================================
+#
+#     <commit_scope> = <display_scope>
+#
+# =========================================================
+#
+# Example
+#
+# Commit:
+#
+#     feat(main): improve workflow
+#
+# Scope:
+#
+#     main
+#
+# Displayed As:
+#
+#     core
+#
+# =========================================================
+#
+# Commit:
+#
+#     fix(auth): validate token
+#
+# Scope:
+#
+#     auth
+#
+# Displayed As:
+#
+#     authentication
+#
+# =========================================================
+#
+# Unmapped scopes automatically use their
+# original scope names.
+#
+# Example:
+#
+# Commit:
+#
+#     feat(database): ...
+#
+# If "database" is not mapped:
+#
+#     database
+#
+# will be rendered unchanged.
+#
+# =========================================================
+
+main = "core"
+
+auth = "authentication"
+
+cli = "cli"
+
+changelog = "changelog"
+
+workflow = "workflow"
+
+template = "template"
+
+config = "configuration"
+
+docs = "documentation"
+
+tests = "tests"
+
+
+# =========================================================
+# CHANGELOG - 🏷️ TYPE MAPPING
+# =========================================================
+#
+# Maps Conventional Commit types to
+# display titles used by the generated
+# CHANGELOG.md.
+#
+# Type mapping affects presentation only.
+#
+# It does NOT modify:
+#
+#     • the original commit message
+#     • Git history
+#     • commit parsing
+#     • commit classification
+#
+# Instead, it controls how commit groups
+# are titled inside the generated
+# changelog.
+#
+# =========================================================
+
+[tool.custy.changelog.type_map]
+
+
+# =========================================================
+# FORMAT
+# =========================================================
+#
+#     <commit_type> = <display_title>
+#
+# =========================================================
+#
+# Example
+#
+# Commit:
+#
+#     feat(workflow): add release pipeline
+#
+# Type:
+#
+#     feat
+#
+# Rendered As:
+#
+#     ### ✨ Features
+#
+# =========================================================
+#
+# Commit:
+#
+#     fix(parser): handle invalid input
+#
+# Type:
+#
+#     fix
+#
+# Rendered As:
+#
+#     ### 🐛 Bug Fixes
+#
+# =========================================================
+#
+# Custom Example
+#
+# feat = "🚀 New Features"
+#
+# Output:
+#
+#     ### 🚀 New Features
+#
+# =========================================================
+#
+# Unknown commit types will fall back to
+# the value configured by:
+#
+#     other
+#
+# =========================================================
+
+feat = "✨ Features"
+
+fix = "🐛 Bug Fixes"
+
+improvement = "🧠 Improvements"
+
+template = "📄 Templates"
+
+breaking = "⚠️ Breaking Changes"
+
+docs = "📚 Documentation"
+
+refactor = "🧠 Refactoring"
+
+perf = "⚡ Performance"
+
+test = "🧪 Tests"
+
+chore = "🔧 Chores"
+
+ci = "⚙️ CI/CD"
+
+build = "🏗️ Build"
+
+release = "🚀 Releases"
+
+revert = "↩️ Reverts"
+
+style = "🎨 Styling"
+
+other = "📦 Others"
+
+
+# =========================================================
+# CHANGELOG - 🧪 ADVANCED FEATURES
+# =========================================================
+#
+# Experimental changelog features.
+#
+# These options provide additional behavior
+# beyond the standard changelog generation
+# workflow.
+#
+# Experimental features may change between
+# Custy releases and should not be relied
+# upon for long-term compatibility until
+# they become stable.
+#
+# =========================================================
+
+[tool.custy.changelog.advanced]
+
+
+# =========================================================
+# AUTOMATIC TYPE DETECTION
+# =========================================================
+
+# Automatically infer Conventional Commit
+# types when a commit message does not
+# explicitly specify one.
+#
+# Example:
+#
+#     Add workflow validation
+#
+# May be interpreted as:
+#
+#     feat
+#
+# false
+#
+#     Require explicit commit types.
+#
+# true
+#
+#     Attempt to classify commits using
+#     built-in heuristics.
+#
+auto_detect_type = false
+
+
+# =========================================================
+# BREAKING CHANGE DETECTION
+# =========================================================
+
+# Automatically detect breaking changes
+# using commit message analysis.
+#
+# This is in addition to the configured
+# breaking change keywords.
+#
+# Example:
+#
+#     Remove deprecated workflow
+#
+# May automatically be classified as a
+# breaking change.
+#
+detect_breaking_changes = false
+
+
+# =========================================================
+# SMART RENDERING
+# =========================================================
+
+# Enable intelligent formatting during
+# changelog generation.
+#
+# Future versions of Custy may use this
+# option to improve readability through:
+#
+#     • smarter spacing
+#     • improved grouping
+#     • duplicate reduction
+#     • automatic formatting adjustments
+#
+# This feature is currently experimental.
+#
+smart_formatting = false
+
+
+# =========================================================
+# 🌿 GIT
+# =========================================================
+#
+# Git repository configuration used by
+# commit, tag, release, workflow, and
+# push operations.
+#
+# These settings control remote
+# selection, push behavior, and backup
+# repository synchronization.
+#
+# =========================================================
+
+[tool.custy.git]
+
+# Default Git remote.
+#
+# Used when main_remotes is empty and no
+# remote is explicitly provided via CLI.
+#
+# Examples:
+#
+#     origin
+#     upstream
+#     github
+#     gitlab
+#
+default_remote = "origin"
+
+# Automatically push changes after
+# successful commit and tag operations.
+#
+# false:
+#     Create commits and tags locally.
+#
+# true:
+#     Automatically push commits and
+#     tags according to the configured
+#     push strategy.
+#
+auto_push = true
+
+# Primary Git remotes.
+#
+# These repositories are considered
+# the authoritative source of the
+# project.
+#
+# Examples:
+#
+#     ["origin"]
+#     ["github"]
+#     ["origin", "gitlab"]
+#
+main_remotes = ["origin"]
+
+# Backup or mirror remotes.
+#
+# These repositories are typically used
+# for redundancy, disaster recovery,
+# archival purposes, or secondary hosts.
+#
+# Examples:
+#
+#     ["backup"]
+#     ["mirror"]
+#     ["github-backup", "gitlab-backup"]
+#
+# backup_remotes = ["backup", "mirror"]
+
+# Push strategy.
+#
+# Used when no explicit --remote is supplied
+# and all_remote is false.
+#
+# Available:
+#
+#     main
+#         Push only to primary remotes.
+#
+#     backup
+#         Push only to backup remotes.
+#
+#     all
+#         Push to both primary and
+#         backup remotes.
+#
+push_to = "main"
+
+
+# =========================================================
+# GIT - 🔐 OPTIONAL HTTPS CREDENTIAL FALLBACK
+# =========================================================
+#
+# Custy does not replace Git authentication. Normal Git credential helpers,
+# cached host sessions, and SSH remain the first and recommended choices.
+# These settings provide an optional HTTPS token fallback, primarily for a
+# Docker container that cannot inherit the host credential-manager session.
+#
+# Tokens are never stored in this TOML file. They may come from:
+#
+#     file
+#         An external token file under the platform credential directory.
+#
+#     environment
+#         A named environment variable passed to Custy or the container.
+#
+# External credential directory defaults:
+#
+#     Windows:  %LOCALAPPDATA%\Custy\credentials
+#     Linux:    $XDG_DATA_HOME/custy/credentials
+#               or ~/.local/share/custy/credentials
+#     Docker:   /run/secrets/custy
+#
+# Override the directory with CUSTY_CREDENTIALS_DIR. Custy rejects token paths
+# inside the target project and never writes a token into config.toml.
+#
+# Recommended setup:
+#
+#     custy configure credentials
+#
+# Inspect or test it safely:
+#
+#     custy configure credentials status
+#     custy configure credentials test --remote origin
+#
+# Behavior matrix:
+#
+#   mode     container_only   Local execution       Container execution
+#   native   true/false       Native Git only       Native Git only
+#   auto     true             Native Git only       Native Git, then fallback
+#   auto     false            Native Git, fallback  Native Git, then fallback
+#
+# SSH remotes always stay on native SSH authentication. Custy does not copy,
+# generate, mount, or manage SSH private keys.
+#
+# =========================================================
+
+[tool.custy.git.credentials]
+
+# native (default): never use Custy's token fallback.
+# auto: use enabled external sources after normal Git helpers.
+mode = "native"
+
+# true (recommended): managed fallback is active only in a container.
+# false: managed fallback may also be used by local HTTPS pushes.
+container_only = true
+
+# Search order after normal Git authentication. A missing file falls through
+# to the next source. An invalid or malformed source stops with a clear error.
+source_order = ["file", "environment"]
+
+# true: when no managed token is available in an interactive terminal, Git may
+# ask for a username and password/PAT as usual.
+interactive_fallback = true
+
+# true (recommended): non-interactive jobs fail instead of waiting forever for
+# a credential prompt. Interactive terminals are unaffected.
+fail_non_interactive = true
+
+[tool.custy.git.credentials.github]
+
+enabled = false
+username = "x-access-token"
+token_file = "github.token"
+token_env = "CUSTY_GITHUB_TOKEN"
+
+[tool.custy.git.credentials.gitlab]
+
+enabled = false
+username = "oauth2"
+token_file = "gitlab.token"
+token_env = "CUSTY_GITLAB_TOKEN"
+
+
+# =========================================================
+# GIT - 🪝 COMMIT HOOKS
+# =========================================================
+#
+# Controls how Custy executes pre-commit and commit-msg hooks.
+#
+# Projects without installed hooks continue through normal Git behavior in
+# every mode except explicit pre_commit mode. A .pre-commit-config.yaml file
+# alone does not activate pre-commit; the hook must be installed or the mode
+# must be set explicitly.
+#
+# Available modes:
+#
+#     auto (recommended)
+#         Use native Git hooks when they are absent or compatible. When a
+#         recognized pre-commit-generated wrapper is incompatible with the
+#         current environment (for example, a Windows hook mounted into a
+#         Linux container), run the same configured pre-commit stages directly.
+#
+#     native
+#         Always let Git execute installed hooks exactly as they are. Use this
+#         for custom hooks or when every hook matches the runtime environment.
+#
+#     pre_commit
+#         Require .pre-commit-config.yaml and the pre-commit executable, run
+#         configured stages directly, then skip only the wrappers that already
+#         completed successfully for the current commit.
+#
+# Custy never silently skips an unknown or failing hook.
+#
+# =========================================================
+
+[tool.custy.git.hooks]
+
+mode = "auto"

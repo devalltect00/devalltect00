@@ -1,0 +1,33 @@
+feat(workflow): 1.10.0b2
+
+Beta release for **Custy 1.10.0**, introducing mid-stage features and workflow improvements.
+Partially validated features and improvements. Some issue still remain.
+
+Expands test coverage, improves documentation, and refines the logic of the WorkflowManager.
+
+### 📄 Templates
+- Added more example templates for `commit-msg.txt` and `tag-msg.txt`
+
+### 🧪 Tests
+- Introduced automated tests for `WorkflowManager` functionality
+
+### 🐛 Fixes
+- Fixed logic issues in `WorkflowManager` related to CASE transitions
+
+### 📚 Documentation
+- Added `docs/git/git_workflow_cases.md` explaining CASE logic
+- Documented `WorkflowManager` classes, functions, and transitions
+- Updated `docs/TODO.md` to reflect recent changes
+
+### 🧹 Maintenance
+- Linted and formatted codebase using `ruff`
+
+---
+
+_Tag: `1.10.0b2`_
+
+🔖 **Tags**:
+- Type: `#feature`, `#bugfix`
+- Docs: `#docs`, `#template`
+- Tests: `#tests`
+- Maintenance: `#cleanup`

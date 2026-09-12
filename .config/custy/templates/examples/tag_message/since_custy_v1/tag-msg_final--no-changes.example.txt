@@ -1,0 +1,27 @@
+🧪 Final Release 1.4.0
+
+Custy CLI v1.4.0 is now stable and production-ready. This release promotes all features and fixes from earlier pre-releases, including alpha and release candidate stages.
+
+No Changes have been made since `v1.4.0rc1`
+
+### 🔍 Highlights
+
+- Prevents version bumping of major/minor/patch when staying in the same pre-release tier (e.g., `rc1 → rc2`)
+- Restricts changelog generation to final releases only (e.g., `v1.2.3`)
+- Tags and bumps only allowed for selected commit types: `feat`, `fix`, `perf`, `docs`, `refactor` (override required otherwise)
+- Automatically detects project type (`Python` or `JavaScript`) to apply `PEP 440` or `SemVer` respectively
+- Supports tag message editing via external file (`tag-msg.txt`), with default template via flag
+- Aggregates commit/tag messages from prereleases into a final template for stable tags
+- Ensures patch is not incremented when moving from RC to final (e.g., `v1.2.3rc1 → v1.2.3`)
+- Adds backup cleanup command: `cleanup-backups` (retains last 10 backups, configurable)
+- Fixes template and backup file handling (placement, resolution)
+- Updates `.gitignore` and `.projectignore` to exclude `templates/tag-msg.txt`
+- Fixes bugs and improve behaviour when using `--dry-run`
+- Add more documentation under the `docs/` directory
+- Improve and modifies `Makefile` targets
+- Include additional examples of commit message templates.
+- Resolved issue with `get_last_tag_before()` in `GitHelper`(`app\utils\git.py`).
+- Resolved issue with `_prepare_release_message_from_prereleases()` in `GitCommitTagger`(`app\git_commit_tagger.py`).
+- Resolved issue with `get_commits_between_tags()` in `GitHelper`(`app\utils\git.py`).
+
+✅ This version is stable and suitable for production use.

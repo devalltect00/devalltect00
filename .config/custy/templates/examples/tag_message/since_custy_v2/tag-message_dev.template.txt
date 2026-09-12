@@ -1,0 +1,28 @@
+🚧 Custy v2.1.0-dev.1 — Development Snapshot
+
+Custy v2.1.0-dev.1 is a named development checkpoint for maintainers,
+contributors, and automated integration environments. It captures work in
+progress before the first alpha and is not a general preview release.
+
+### 🔨 Current Work
+
+- [Describe the implementation or refactor represented by this snapshot.]
+- [Describe incomplete integration or compatibility work.]
+- [Describe tests, tooling, or documentation added so far.]
+
+### 📌 Known Limitations
+
+- [List incomplete behavior or known failures.]
+- [List unverified platforms, workflows, or package formats.]
+- [List temporary interfaces or migration assumptions.]
+
+### ⚠️ Snapshot Status
+
+- `dev.1` is a project-defined SemVer prerelease identifier.
+- This snapshot may be unstable, incomplete, or replaced without migration guidance.
+- Do not use it for production workflows or long-lived automation dependencies.
+
+_Release: v2.1.0-dev.1_
+_Next milestone: v2.1.0-alpha.1_
+_Strategy: Semantic Versioning prerelease_
+_Author: Devalltect / Rizky Fernandes_

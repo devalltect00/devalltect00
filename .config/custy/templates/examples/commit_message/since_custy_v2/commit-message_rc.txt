@@ -1,0 +1,123 @@
+feat(release)!: prepare Custy v2.0.0-rc.1
+
+Prepare the first release candidate for Custy 2.0.0, consolidating the major
+architecture, CLI, configuration, changelog, automation, testing, and
+documentation changes developed after the 1.10.x release line.
+
+This release candidate replaces the former monolithic workflow with explicit,
+composable subsystems that are easier to understand, test, debug, maintain, and
+extend. It also provides a more consistent experience for users running
+individual commands or complete release pipelines.
+
+### ✨ Features
+
+#### CLI and workflow orchestration
+
+- Replaced the monolithic `argparse` entrypoint with a Typer-based command layer under `app/cli`.
+- Added focused commands for `init`, `validate`, `commit`, `tag`, `push`, `version`, `changelog`, `backup`, and `cleanup`.
+- Added `custy run` with explicit `dev`, `release`, and `full` profiles plus safe custom step composition.
+- Added ordered pipeline steps for validation, preparation, generation, version application, changelog creation, backup, cleanup, commit, tag, push, and finalization.
+- Added global dry-run, debug, and configurable log-level controls with consistent command resolution.
+- Added project initialization modes for configuration, templates, examples, and selective scaffolding.
+
+#### Configuration and templates
+
+- Replaced the minimal `.custor.toml` configuration with the namespaced `.config/custy/config.toml` system.
+- Added CLI-to-config-to-default resolution for project paths, templates, versioning, execution, push, cleanup, workflow, logging, changelog, and Git behavior.
+- Added packaged defaults under `app/templates` while keeping generated user configuration and editable templates under `.config/custy`.
+- Added configurable initialization behavior for creating, replacing, or preserving project resources.
+
+#### Changelog generation
+
+- Rebuilt changelog generation as a modular parsing, processing, integration, sorting, rendering, and provider pipeline.
+- Added Conventional Commit parsing with type, scope, subsection, and breaking-change support.
+- Added configurable type and scope mappings, release behavior, link generation, pending-commit placement, cleaning rules, and Jinja rendering.
+- Added commit expansion, deduplication, grouping, release ordering, contributor metadata, statistics, and pending-commit integration.
+- Fixed generated `CHANGELOG.md` structure, release summaries, comparison links, grouping, and formatting to produce predictable release output.
+
+#### Git, versioning, and repository maintenance
+
+- Added separated Git command execution and service layers with structured operation results and clearer error handling.
+- Preserved SemVer, PEP 440, Commitizen, date, and Git-count strategies behind focused strategy and helper interfaces.
+- Added explicit commit staging modes, annotated tag preparation, tag sorting, multi-remote push controls, and backup synchronization.
+- Added structured commit/tag-message backup operations and configurable retention cleanup.
+- Added safer branch cleanup with protected-branch rules, merge-status filters, age filters, result models, and Rich summaries.
+
+### 🧠 Improvements
+
+#### User experience
+
+- Added Rich panels, tables, progress indicators, consistent colors, clearer summaries, and actionable error messages.
+- Expanded command help with examples, related-command guidance, safety notes, and clearer option descriptions.
+- Improved validation before mutating operations and made pipeline execution order visible and predictable.
+- Added warnings that the workflow-policy command remains experimental.
+
+#### Developer experience
+
+- Added clear boundaries between CLI presentation, core domain logic, Git services, pipelines, configuration, UI, templates, and shared errors.
+- Introduced strategy, factory, builder, protocol, service, presenter, and pipeline patterns where they simplify extension and testing.
+- Replaced broad utility-module responsibilities with feature-specific packages and smaller focused components.
+- Added centralized logging with console and external-file configuration for improved diagnosis and observability.
+- Added modular Make targets with discoverable help for local, Docker, Compose, registry, quality, documentation, and release workflows.
+
+### 🧠 Refactoring
+
+- Replaced the former `app/__main__.py` orchestration and large `GitCommitTagger` responsibilities with dedicated CLI and core layers.
+- Moved active Git, versioning, workflow, cleanup, backup, changelog, and initialization logic out of the former catch-all `app/utils` layout.
+- Split workflow execution into reusable profiles, ordered steps, resolvers, builders, and an execution engine.
+- Split the changelog generator into typed models and independently testable parsing, processing, provider, sorting, integration, and rendering components.
+- Reorganized project metadata, templates, automation, developer tooling, and repository structure for maintainability.
+
+### 🐛 Bug Fixes
+
+- Corrected changelog grouping, pending-commit handling, release ordering, comparison-link generation, and Markdown rendering behavior.
+- Fixed command resolution, missing-command feedback, initialization flow, validation behavior, and CLI help presentation.
+- Improved handling for repositories with incomplete history, missing optional resources, invalid configuration, and failed Git operations.
+- Corrected backup/template path resolution and cleanup behavior across direct commands and composed pipelines.
+
+### 🧪 Tests
+
+- Expanded coverage from a small version/workflow-focused suite to dedicated CLI, configuration, core, integration, regression, logging, UI, service, and utility tests.
+- Added focused coverage for commands, pipeline steps, Git services, version strategies, initialization, cleanup, workflow behavior, and changelog generation.
+- Added changelog fixtures and regression coverage for the expected rendered output.
+- Validated the current Custy test suite after the architecture and changelog refactors.
+
+### 📚 Documentation
+
+- Reworked the README for the current CLI, Python 3.14 requirements, release artifacts, Docker/GHCR usage, Make helpers, and MIT licensing.
+- Added comprehensive Custy documentation to the Devalltect Docusaurus portal with English and Indonesian content.
+- Documented commands, configuration sections, pipeline profiles, architecture, user workflows, developer workflows, reference material, and troubleshooting guidance.
+- Added clearer cross-references to avoid duplicated troubleshooting and configuration content.
+
+### ⚙️ CI/CD
+
+- Added GitHub Actions and GitLab CI definitions for validation, container builds, and release workflows.
+- Added multi-stage development and production Docker images plus Docker Compose workflows.
+- Added pre-commit, Ruff, Black, Pytest, packaging, and repository-quality automation.
+- Added wheel and source-distribution generation for tagged GitHub releases.
+
+### ⚠️ Breaking Changes
+
+- Python 3.14 or newer is now required instead of the previous Python 3.11 baseline.
+- Configuration moved from `.custor.toml` to `.config/custy/config.toml` with a new namespaced schema.
+- User-editable message and changelog templates moved to `.config/custy/templates`; packaged defaults now live under `app/templates`.
+- The console entrypoint moved from `app.__main__:main` to the Typer application at `app.cli.main:app`.
+- The old `commit-tag-bump` and `all` flows are replaced by focused commands and `custy run` profiles.
+- The old `cleaned-backups` and `clean-branches` commands are replaced by `custy cleanup backups` and `custy cleanup branches`.
+- Changelog generation now uses `custy changelog generate` and the new configuration-driven rendering pipeline.
+- Internal module paths and extension points changed substantially because CLI, core, Git, pipeline, UI, and configuration responsibilities are now separated.
+
+BREAKING CHANGE: Custy 2.0 introduces a new Python requirement, configuration
+schema, template layout, CLI structure, entrypoint, pipeline model, and internal
+architecture. Existing 1.x projects must run `custy init`, review the generated
+`.config/custy` resources, and update old command invocations before adopting
+the 2.0 release line.
+
+Tag: v2.0.0-rc.1
+
+🔖 **Tags**:
+- Type: `#feature`, `#improvement`, `#refactor`, `#bugfix`
+- Architecture: `#cli`, `#core`, `#pipeline`, `#configuration`, `#changelog`
+- Quality: `#tests`, `#logging`, `#developer-experience`
+- Delivery: `#docs`, `#ci`, `#docker`, `#release`
+- Stability: `#breaking-change`, `#release-candidate`

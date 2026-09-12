@@ -1,0 +1,77 @@
+feat(profile): build a complete developer profile
+
+Transform the GitHub profile repository from a single-line placeholder into a
+structured, accessible, and maintainable developer profile that presents the
+Devalltect00 identity, technology experience, selected projects, activity, and
+contact destinations.
+
+### ✨ Profile Experience
+
+- Replace the original `Pause, Think, Act` heading with a complete profile landing page.
+- Add a theme-aware ScribeSVG introduction for the Full-Stack Developer identity.
+- Present `Pause · Think · Act` as an animated message and closing signature.
+- Introduce a concise, playful summary about turning ideas and spare-time experiments into web apps, desktop apps, APIs, and developer tools.
+- Present a mostly solo development style, openness to teamwork and contributions, and a creative, curious approach to building software.
+- Add a prominent personal-portfolio call to action and supporting description.
+- Add recognizable icons to the main section headings while keeping project and technology subgroup headings visually restrained.
+- Apply the Devalltect00 light and dark color palette across animated text, badges, statistics, icons, and generated contribution assets.
+
+### 🧰 Technology Stack
+
+- Organize technology experience into languages, frontend and mobile, backend and automation, desktop and productivity, data, and delivery tooling.
+- Present Python, JavaScript, TypeScript, Go, PHP, Java, C++, and C# through compact visual icons.
+- Include React, React Native, Next.js, Tailwind CSS, Sass, Vite, and Astro for frontend and cross-platform development.
+- Include Flask, FastAPI, Laravel, Node.js, Scrapy, web scraping, and web crawling capabilities.
+- Add PyQt 5/6 and Microsoft Excel to the desktop and productivity group.
+- Present MySQL, PostgreSQL, MongoDB, Docker, Docker Compose, Git, Linux, GitHub, GitLab, GitHub CLI, GitLab CLI, Docusaurus, Figma, and Arduino.
+- Add accessible alternative text and explanatory labels where one icon represents related tools or capabilities.
+- Use recognizable Icons8 Microsoft Excel and LinkedIn assets with the required attribution.
+
+### 🚀 Featured Projects
+
+- Add dedicated showcases for Path Header Scanner, Doc Gen, Reflow, and Custy.
+- Include locally stored terminal previews so project presentation does not depend on documentation-site asset paths.
+- Add concise project descriptions with direct repository and documentation links.
+- Use consistent project badges and accessible image descriptions throughout the showcase.
+
+### 📊 Activity and Contributions
+
+- Add a light and dark GitHub activity card using the maintained GitHub Stats Extended service.
+- Add a scheduled and manually triggered contribution-snake workflow.
+- Generate separate light and dark snake assets using the Devalltect00 palette.
+- Publish generated contribution assets to the dedicated `output` branch.
+- Keep repository credentials out of profile content and avoid exposing tokens to the statistics service.
+
+### 🤝 Contact and Navigation
+
+- Add icon-based links for GitHub, GitLab, LinkedIn, the personal portfolio, and documentation.
+- Use local generic book and briefcase icons for clear documentation and portfolio navigation.
+- Add titles and alternative text so icon-only navigation remains understandable and accessible.
+
+### 🔧 Repository Maintenance
+
+- Add focused ignore rules for operating-system metadata, editor state, temporary files, environment files, runtime logs, and generated Custy backups.
+- Add Git attributes that normalize repository text to LF while preserving screenshots and other image assets as binary files.
+- Add EditorConfig defaults for UTF-8, predictable indentation, final newlines, and Markdown-friendly whitespace handling.
+- Add monthly grouped Dependabot checks for GitHub Actions used by the profile automation.
+- Keep `.config/custy` available for intentional configuration and commit-message versioning while excluding generated runtime artifacts.
+
+### ✅ Validation
+
+- Validate workflow and Dependabot configuration as YAML.
+- Validate local SVG assets as XML.
+- Confirm every local README image reference resolves to an existing file.
+- Confirm copied project screenshots match their documentation-source assets.
+- Verify Git attributes and ignore rules against representative repository files.
+- Run Git whitespace validation across the completed working tree.
+
+This commit intentionally has no associated release tag. The repository is a
+GitHub profile presentation and automation update rather than a versioned
+application release.
+
+🔖 **Tags**:
+- Type: `#feature`, `#profile`, `#documentation`
+- Experience: `#full-stack`, `#portfolio`, `#accessibility`, `#responsive`
+- Projects: `#path-header-scanner`, `#doc-gen`, `#reflow`, `#custy`
+- Automation: `#github-actions`, `#dependabot`, `#contribution-snake`
+- Maintenance: `#gitignore`, `#gitattributes`, `#editorconfig`

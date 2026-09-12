@@ -1,0 +1,35 @@
+fix(release): prepare Custy v2.0.0.post1
+
+Prepare a PEP 440 post release for Custy 2.0.0 to correct distribution,
+packaging, documentation, or release metadata without changing the supported
+application behavior delivered by v2.0.0.
+
+### 📦 Distribution Corrections
+
+- [Describe corrected package metadata, files, classifiers, or publication details.]
+- [Describe a rebuilt or republished artifact and why it was necessary.]
+
+### 📚 Documentation and Metadata
+
+- [Describe corrected installation guidance, release links, or metadata.]
+- [Describe any clarification that does not alter runtime behavior.]
+
+### ✅ Verification
+
+- [Confirm the post release uses the same intended application source as v2.0.0.]
+- [List packaging, artifact, installation, or documentation checks performed.]
+
+### ⚠️ Versioning Notes
+
+- `.post1` is a PEP 440 post-release identifier, not a Semantic Versioning identifier.
+- Use a normal patch release such as `v2.0.1` when application code or supported behavior changes.
+- Clearly disclose rebuilt artifacts and publication timestamps when they differ from the original release.
+
+Tag: v2.0.0.post1
+Base release: v2.0.0
+Strategy: PEP 440
+
+🔖 **Tags**:
+- Type: `#fix`, `#maintenance`
+- Scope: `#packaging`, `#distribution`, `#documentation`
+- Stability: `#post-release`

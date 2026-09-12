@@ -1,0 +1,19 @@
+✅ Final Release Custy 1.9.0
+
+**Custy 1.9.0** is now stable and production-ready. All feature and fixes from pre-releases (alpha, beta, rc) are included.
+
+### ✨ Highlights
+
+- 🚀 Enhanced CLI with silent/debug support
+- 🧠 Smart version resolution with commit type validation
+- 🛠️ Improved Makefile and automation pipelines
+- 📄 Refined commit/tag message templates
+- 📚 Updated documentation, usage instructions, and project structure
+- 🧹 Cleaned up legacy files and polished project layout
+- 🐛 Fixed internal bugs including versioning and pipeline issues
+
+---
+
+✅ This version is stable and suitable for production use.
+_Author: devalltect00_
+_Date: 2025-08-04_

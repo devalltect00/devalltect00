@@ -1,0 +1,31 @@
+feat(workflow): 1.10.16 — CASE-based Git workflow automation
+
+Beta release for **Custy 1.10.16**, introducing mid-stage features and workflow improvements.
+Partially validated features and improvements. Some issue still remain.
+
+This beta release introduces full support for CASE-based Git flow automation through an upgraded `WorkflowManager`.
+
+### ✨ Features
+- ✅ CASE 1–6: core transitions (develop → release → main → post-release)
+- ✅ CASE 7–9: extended transitions for `feature/*`, `ci/*`, and `archive/*` branches
+- `run_initial_workflow()` sets up Git context before tag
+- `run_final_workflow()` automates merge, cleanup, and post-release steps
+- `get_transaction_cases()` includes a complete CASE 1–9 transition map
+- Integrated backup push for critical paths
+
+### 📚 Documentation
+- Added detailed documentation for `WorkflowManager` logic and CASE transitions
+- Documented branching behavior, initial/final hooks, and example flow diagrams
+
+### ⚠️ Breaking Change
+- Tag-driven branching now enforced through CASE transition rules
+
+This version brings reliable Git automation to support structured release processes and simplify branching flows.
+
+_Tag: `1.10.16`_
+
+🔖 **Tags**:
+- Type: `#feature`
+- Docs: `#docs`
+- Workflow: `#workflow`, `automation`
+- ⚠️ Stability: `#breaking-change`

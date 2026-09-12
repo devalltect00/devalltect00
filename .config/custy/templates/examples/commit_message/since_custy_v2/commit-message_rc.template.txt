@@ -1,0 +1,40 @@
+chore(release): prepare Custy v2.1.0-rc.1
+
+Prepare the first release candidate for Custy 2.1.0 after completing the
+planned feature set and beta stabilization work.
+
+The release candidate is intended for final compatibility, packaging,
+documentation, installation, and end-to-end workflow validation. Only release
+blockers and carefully reviewed corrections should be introduced before the
+stable promotion.
+
+### 🌟 Candidate Scope
+
+- [Summarize the primary features planned for the stable release.]
+- [Summarize important user and developer experience improvements.]
+- [Summarize compatibility, migration, or distribution changes.]
+
+### 🐛 Stabilization Fixes
+
+- [Describe fixes completed since the latest beta.]
+- [Describe reliability, safety, or edge-case improvements.]
+
+### 🧪 Release Validation
+
+- [List completed tests, builds, packaging checks, and supported-platform checks.]
+- [List the final workflows that require RC feedback.]
+
+### ⚠️ Candidate Notes
+
+- This is a prerelease and should be validated in a non-production repository first.
+- Avoid new feature work unless it resolves a release-blocking problem.
+- Confirm configuration migration, generated files, Git effects, remotes, packages, and documentation before stable promotion.
+
+Tag: v2.1.0-rc.1
+Previous version: [latest beta]
+Target stable version: v2.1.0
+
+🔖 **Tags**:
+- Type: `#release`, `#bugfix`, `#improvement`
+- Quality: `#validation`, `#release-testing`
+- Stability: `#release-candidate`, `#prerelease`

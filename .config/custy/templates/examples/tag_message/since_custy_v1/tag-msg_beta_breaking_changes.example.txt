@@ -1,0 +1,27 @@
+🧪 Beta Release Custy 1.10.0b1 — CASE-Based Git Workflow Automation
+
+Beta release for **Custy 1.10.0** — focusing on mid-stage features and improved automation.
+A major upgrade to Git automation in Custy via CASE-driven transitions and structured branching logic.
+
+### ✨ Highlights
+
+- ✅ CASE 1–6: automates core Git flow (develop → release → main → post-release)
+- ✅ CASE 7–9: adds logic for ci/*, feature/*, and archive/* handling
+- `run_initial_workflow()` and `run_final_workflow()` automate tagging phases
+- Backup push and auto-cleanup built into CASE logic
+
+### 📚 Documentation
+
+- Comprehensive documentation added for CASE 1–9 transitions
+- Branch transition logic, diagrams, and developer notes included
+
+---
+
+### ⚠️ Breaking Change
+Tag-driven branching is now enforced with CASE-based transition mapping tied to version and source branch.
+
+---
+
+ℹ️ This is a **beta pre-release** and is **not recommended for production use**.
+_Author: devalltect00_
+_Date: 2025-08-05_

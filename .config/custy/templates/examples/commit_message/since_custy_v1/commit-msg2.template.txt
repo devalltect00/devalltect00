@@ -1,0 +1,18 @@
+<type>(main): v1.10.15
+
+Final release of **Custy v1.10.15**, promoted from the latest release candidate.
+
+Includes all feature and fixes from pre-releases: .
+All functionality has been fully validated and production-ready.
+
+- *(Nothing yet)* — See tag message for full context.
+
+---
+
+🎉 **Custy v1.10.15 is now stable and ready for production use.**
+
+🔖 **Tags**:
+- Type: `#<type>`
+- Stability: `#stable`
+
+Changelog: handled separately

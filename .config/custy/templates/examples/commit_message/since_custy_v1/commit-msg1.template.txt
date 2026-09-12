@@ -1,0 +1,18 @@
+<type>(<scope>): <version>
+
+<description:>
+if "final_release_version": "Final release of <app_name> <version> - prompted from release candidate"
+if "release_candidate_version": "Release candidate for <tag_version>, consolidating all pre-release changes."
+if "alpha", "beta", and so on they have their format
+</description>
+
+<additional_information>
+if "final_release_version": "Includes all feature and fixes from <list_of_pre-release_version_before_release> pre-releases. <optional>if the release candidate just 1 version and no changes: No changes. since v1.4.0rc1." </optional>
+if "release_candidate_version": "Release candidate for <tag_version>, consolidating all pre-release changes."
+</additional_information>
+
+<optional: list of changes, bullet points>
+
+<optional> BREAKING CHANGE: <describe breaking API, behavior, or CLI change>
+
+Tag: <tag_version>

@@ -1,0 +1,87 @@
+🚧 Custy v2.0.0-rc.1 — Major Architecture and Workflow Release Candidate
+
+Custy v2.0.0-rc.1 is the first release candidate for the 2.0 major release.
+It consolidates the large set of changes developed after the 1.10.x line and
+is intended for users and contributors who want to validate the new CLI,
+configuration system, changelog generator, and release pipelines before the
+stable v2.0.0 release.
+
+The central change in Custy 2.0 is a move from a mostly monolithic Git
+automation script to a structured developer-productivity platform. Commands are
+now easier to discover, workflows are explicit, configuration is centralized,
+and the internal architecture is substantially easier to test, debug, maintain,
+and extend.
+
+### 🌟 Highlights
+
+- A new Typer and Rich CLI with clearer help, output, progress, validation, and error guidance.
+- Focused commands for initialization, validation, versioning, changelog generation, commit, tag, push, backup, and cleanup.
+- Reusable `custy run dev`, `custy run release`, and `custy run full` pipelines with explicit ordered steps.
+- A rebuilt, configuration-driven changelog system with Conventional Commit parsing, type/scope grouping, pending-commit support, release sorting, comparison links, and Jinja rendering.
+- A centralized `.config/custy/config.toml` schema covering CLI behavior, paths, templates, versioning, Git remotes, cleanup, logging, workflows, and detailed changelog behavior.
+- Improved SemVer, PEP 440, Commitizen, date, and Git-count version workflows.
+- Safer Git operations, multi-remote synchronization, template backups, retention cleanup, and protected branch cleanup.
+- Docker, Docker Compose, Make, GitHub Actions, GitLab CI, pre-commit, packaging, and release automation support.
+- Comprehensive English and Indonesian documentation through the Devalltect documentation portal.
+
+### 💻 Better for Custy users
+
+- `custy init` creates the configuration and templates needed by a project.
+- `custy validate` checks project readiness before release operations.
+- Individual commands remain available when only one operation is needed.
+- Pipeline profiles provide predictable end-to-end workflows without hiding execution order.
+- Global `--dry-run`, `--debug`, and `--log-level` controls improve safety and troubleshooting.
+- Rich terminal panels, tables, progress output, and summaries make results easier to understand.
+
+### 🧰 Better for contributors and integrators
+
+- CLI presentation and domain behavior are now separated under `app/cli` and `app/core`.
+- Git execution, version strategies, pipelines, changelog processing, initialization, cleanup, UI, and configuration have focused extension points.
+- Smaller components and explicit interfaces make features easier to locate, test, replace, and extend.
+- The test suite now covers CLI, core, integration, regression, configuration, logging, UI, and workflow behavior.
+- Modular Make targets and documented architecture simplify local development and release maintenance.
+
+### 📝 Changelog improvements
+
+The changelog generator has been rebuilt around typed release and commit models.
+It can clean and parse structured messages, recognize breaking changes, group
+entries by type and scope, integrate a pending release commit, remove duplicate
+entries, sort releases, generate comparison links, and render a consistent
+`CHANGELOG.md` from configurable templates.
+
+### ⚠️ Upgrade notes for 1.x users
+
+- Custy now requires Python 3.14 or newer.
+- Replace `.custor.toml` with the generated `.config/custy/config.toml` configuration.
+- Review generated files under `.config/custy/templates` before running commit or release workflows.
+- Replace old `custy all` usage with `custy run release` or `custy run full`.
+- Replace `custy commit-tag-bump` with focused commands or an appropriate `custy run` profile.
+- Replace `custy cleaned-backups` with `custy cleanup backups`.
+- Replace `custy clean-branches` with `custy cleanup branches`.
+- Use `custy changelog generate` for standalone changelog generation.
+- Run `custy --help` and each command's `--help` output before migrating automation scripts.
+
+### 🧪 Recommended RC validation
+
+Please validate this release candidate in a non-production repository first:
+
+1. Install Custy v2.0.0-rc.1 in an isolated Python 3.14 environment.
+2. Run `custy init` and review the generated configuration and templates.
+3. Run `custy validate`.
+4. Preview the intended profile with `custy --dry-run run dev` or `custy --dry-run run release`.
+5. Verify version files, changelog output, commit/tag messages, remotes, and cleanup rules before allowing side effects.
+6. Report migration problems or unexpected output before the stable v2.0.0 promotion.
+
+### 🚧 Release-candidate status
+
+- This is a pre-release and is not yet the final production release.
+- The `custy workflow` branch-policy feature remains experimental and should be used cautiously.
+- Container publishing names and release metadata should receive a final verification before the stable release.
+- The stable v2.0.0 release may include final cleanup, documentation corrections, migration refinements, and fixes discovered during RC validation.
+
+Thank you for testing Custy 2.0 and helping validate the new foundation before
+the stable release.
+
+_Release: v2.0.0-rc.1_
+_Stability: Release Candidate_
+_Author: Devalltect / Rizky Fernandes_

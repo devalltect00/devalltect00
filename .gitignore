@@ -1,0 +1,33 @@
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE state
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Local and temporary files
+*.bak
+*.orig
+*.tmp
+*.temp
+
+# Runtime output
+*.log
+logs/
+.config/custy/templates/backups/
+
+# Python virtual environments (repository root only)
+/venv/
+/.venv/
+/venv_*/
+/*_venv/
+
+# Local environment files
+.env
+.env.*
+!.env.example

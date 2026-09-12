@@ -1,0 +1,125 @@
+# Commit Message — Custy v2.0.0
+
+```text
+release(main): promote Custy v2.0.0
+
+Promote Custy from `v2.0.0-rc.1` to the stable `v2.0.0` release after the
+release-candidate validation period.
+
+Custy 2.0 is the major release developed after the 1.x release line. It
+replaces the former mostly monolithic Git automation workflow with a structured
+developer-productivity CLI built around focused commands, explicit pipelines,
+centralized configuration, safer Git operations, consistent dry-run behavior,
+and a rebuilt changelog system.
+
+No new user-facing features or supported-command behavioral changes are
+introduced after RC.1. The final promotion carries forward the functionality
+validated during the release-candidate cycle while completing repository
+cleanup, development-history archival, and stable-release preparation.
+
+### ✨ Major Release Highlights
+
+#### CLI and workflows
+
+- Replace the former monolithic `argparse` entrypoint with a Typer-based CLI under `app/cli`.
+- Add focused commands for initialization, validation, versioning, changelog generation, commit, tag, push, backup, and cleanup.
+- Add `custy run dev`, `custy run release`, and `custy run full` profiles with explicit and predictable pipeline ordering.
+- Add global dry-run, debug, and configurable log-level controls.
+- Keep read-only discovery and validation available during dry-run while simulating intended project-file, editor, Git, and remote mutations.
+
+#### Configuration and templates
+
+- Replace the former `.custor.toml` configuration with the namespaced `.config/custy/config.toml` system.
+- Add CLI → configuration → default resolution for project paths, templates, versioning, execution, Git, cleanup, logging, workflows, and changelog behavior.
+- Move editable project templates under `.config/custy/templates` while keeping packaged defaults under `app/templates`.
+- Add configurable initialization behavior for creating, replacing, and preserving project resources.
+
+#### Changelog generation
+
+- Rebuild changelog generation around modular parsing, processing, integration, sorting, rendering, and provider components.
+- Add Conventional Commit parsing with type, scope, subsection, and breaking-change support.
+- Add configurable grouping, cleaning, pending-commit integration, release ordering, comparison links, contributor metadata, statistics, and Jinja rendering.
+- Add determinate progress for `Unreleased` content and every discovered Git tag during changelog history collection.
+- Improve generated `CHANGELOG.md` structure, summaries, grouping, links, ordering, and formatting.
+
+#### Git, versioning, and repository maintenance
+
+- Separate Git command execution from higher-level Git services with structured operation results and clearer error handling.
+- Preserve SemVer, PEP 440, Commitizen, date, and Git-count version strategies behind focused interfaces.
+- Add explicit commit staging modes, annotated tag preparation, tag sorting, multi-remote push controls, and backup synchronization.
+- Add structured commit and tag-message backups with configurable retention cleanup.
+- Add safer branch cleanup with protected-branch, merge-status, and age filtering.
+- Add a subprocess dry-run boundary that allows safe Git discovery while simulating mutating Git operations.
+
+### 🧠 Architecture and Developer Experience
+
+- Separate CLI presentation, core domain behavior, Git services, pipelines, configuration, UI, templates, and shared errors.
+- Replace the former `app/__main__.py` orchestration and broad `GitCommitTagger` responsibilities with dedicated CLI and core layers.
+- Move active Git, versioning, workflow, cleanup, backup, changelog, and initialization behavior out of the former catch-all `app/utils` structure.
+- Split workflow execution into reusable profiles, ordered steps, resolvers, builders, and an execution engine.
+- Split changelog behavior into typed models and independently testable parsing, processing, provider, sorting, integration, and rendering components.
+- Introduce focused strategies, factories, builders, protocols, services, presenters, and pipelines where they simplify extension and testing.
+- Add centralized diagnostic logging and modular Make targets for development, containers, quality checks, documentation, and release workflows.
+
+### 🐛 Reliability and Quality
+
+- Correct changelog grouping, pending-commit handling, release ordering, comparison-link generation, and Markdown rendering.
+- Fix command resolution, missing-command feedback, initialization behavior, validation, CLI help, path resolution, and cleanup behavior.
+- Improve handling for incomplete Git history, missing optional resources, invalid configuration, and failed Git operations.
+- Close dry-run side-effect gaps across initialization, versioning, changelog, backup, cleanup, commit, tag, push, run, and experimental workflow operations.
+- Expand coverage across CLI, configuration, core, integration, regression, logging, UI, services, utilities, workflow behavior, cleanup, changelog generation, and dry-run guarantees.
+
+### 📚 Documentation and Delivery
+
+- Rework the README for the current CLI, Python requirements, release artifacts, container usage, Make helpers, and licensing.
+- Add comprehensive English and Indonesian documentation through the Devalltect documentation portal.
+- Document commands, configuration, pipeline profiles, architecture, user and developer workflows, references, and troubleshooting.
+- Add GitHub Actions and GitLab CI validation and release workflows.
+- Add development and production Docker images, Docker Compose workflows, pre-commit, Ruff, Black, Pytest, packaging, and repository-quality automation.
+- Add wheel and source-distribution generation for tagged releases.
+
+### ⚠️ Breaking Changes
+
+- Require Python 3.14 or newer instead of the previous Python 3.11 baseline.
+- Replace `.custor.toml` with `.config/custy/config.toml` and its namespaced configuration schema.
+- Move editable templates to `.config/custy/templates`.
+- Move the console entrypoint from `app.__main__:main` to the Typer application at `app.cli.main:app`.
+- Replace the old `commit-tag-bump` and `all` flows with focused commands and `custy run` profiles.
+- Replace `cleaned-backups` with `custy cleanup backups`.
+- Replace `clean-branches` with `custy cleanup branches`.
+- Replace the previous changelog flow with `custy changelog generate` and the configuration-driven rendering pipeline.
+- Change internal module paths and extension points substantially as CLI, core, Git, pipeline, UI, configuration, and changelog responsibilities are separated.
+
+Existing 1.x projects must run `custy init`, review the generated
+`.config/custy` resources, and update legacy command invocations before
+adopting the 2.0 release line.
+
+### 🧹 Changes Since v2.0.0-rc.1
+
+- Remove temporary root development notes and scratch change-tracking files.
+- Remove completed root and version-specific TODO files.
+- Archive the v2.0.0 development scope, decisions, completed work, remaining ideas, and release checklist in `docs/TODO_tracking_history.md`.
+- Review the final repository contents so personal and temporary planning files are not included unintentionally.
+- Perform final repository housekeeping for the stable release.
+
+### ✅ Stable Promotion
+
+- Carry forward the complete feature, fix, refactor, test, automation, and documentation set validated during `v2.0.0-rc.1`.
+- Keep the public CLI, configuration schema, changelog behavior, dry-run behavior, pipeline profiles, and extension boundaries unchanged from RC.1.
+- Preserve the experimental status and warning for the `custy workflow` branch-policy feature.
+- Prepare the repository for the stable SemVer tag and public release publication.
+
+No additional supported-command behavior changes are introduced between
+`v2.0.0-rc.1` and `v2.0.0`.
+
+Tag: v2.0.0
+Previous release: v2.0.0-rc.1
+
+🔖 **Tags**:
+- Type: `#release`, `#maintenance`, `#cleanup`
+- Architecture: `#cli`, `#core`, `#pipeline`, `#configuration`, `#changelog`
+- Quality: `#tests`, `#logging`, `#documentation`, `#developer-experience`
+- Delivery: `#ci`, `#docker`, `#stable`, `#semver`, `#release`
+- Scope: `#repository-cleanup`, `#history-archive`
+- Compatibility: `#breaking-change`
+```

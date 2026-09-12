@@ -1,0 +1,41 @@
+✅ Custy v2.1.0 — Stable Release
+
+Custy v2.1.0 promotes the validated release-candidate feature set to the stable
+2.1 release line. This release is intended for supported production use,
+subject to the documented requirements and any explicitly experimental feature
+boundaries.
+
+### 🌟 Highlights
+
+- [Describe the primary user-facing feature.]
+- [Describe an important workflow, reliability, or safety improvement.]
+- [Describe a significant contributor, integration, or distribution improvement.]
+
+### 🐛 Fixes and Refinements
+
+- [Describe an important fix included in the stable release.]
+- [Describe final changes made after the latest release candidate, or state that there were none.]
+
+### 📦 Upgrade Guidance
+
+- [Describe changed requirements, configuration, commands, or file locations.]
+- [Describe migration steps for users of the previous stable release.]
+- [Link or refer to installation, configuration, changelog, and troubleshooting documentation.]
+
+### ⚠️ Compatibility and Experimental Features
+
+- [List breaking changes or state that the release is backward compatible.]
+- [Identify features that remain experimental and explain their support boundary.]
+
+### ✅ Release Status
+
+- Version: `v2.1.0`
+- Previous version: `v2.1.0-rc.1`
+- Strategy: Semantic Versioning
+- Stability: Stable for supported features
+
+Thank you to everyone who tested the prereleases and reported issues before
+the stable promotion.
+
+_Release: v2.1.0_
+_Author: Devalltect / Rizky Fernandes_

@@ -1,0 +1,136 @@
+# Tag / Release Message — Custy v2.0.0
+
+```text
+✅ Custy v2.0.0 — Stable Major Release
+
+Custy v2.0.0 is the stable release of the Custy 2.0 major release line.
+
+It promotes the feature set validated in `v2.0.0-rc.1` and completes the major
+redesign developed after the 1.x release line. No new user-facing behavior or
+supported-command changes were introduced after RC.1; the final promotion
+focuses on repository cleanup, development-history preservation, and stable
+release preparation.
+
+Custy 2.0 evolves the project from a mostly monolithic Git automation script
+into a structured developer-productivity CLI with discoverable commands,
+explicit release pipelines, centralized configuration, safer previews,
+modular services, and clearer extension points.
+
+### 🌟 Highlights
+
+- A Typer and Rich CLI with clearer help, validation, progress, summaries, and error guidance.
+- Focused commands for initialization, validation, versioning, changelog generation, commit, tag, push, backup, and cleanup.
+- Reusable `custy run dev`, `custy run release`, and `custy run full` profiles with visible and deterministic step ordering.
+- A namespaced `.config/custy/config.toml` configuration system with CLI → configuration → default resolution.
+- A rebuilt changelog generator with Conventional Commit parsing, configurable grouping and cleaning, pending content, release sorting, comparison links, contributor metadata, statistics, and Jinja templates.
+- Determinate changelog progress for `Unreleased` content and every discovered Git tag.
+- Consistent dry-run behavior that keeps read-only discovery and validation available while simulating intended file, editor, Git, and remote mutations.
+- SemVer, PEP 440, Commitizen, date, and Git-count version strategies with separated Git execution and service boundaries.
+- Multi-remote synchronization, structured commit and tag-message backups, retention cleanup, and protected branch-cleanup rules.
+- Expanded CLI, core, integration, regression, configuration, logging, UI, workflow, dry-run, cleanup, and changelog test coverage.
+- Docker, Docker Compose, modular Make targets, GitHub Actions, GitLab CI, pre-commit, packaging, and release automation.
+- Comprehensive English and Indonesian documentation through the Devalltect documentation portal.
+
+### 💻 Better for Custy Users
+
+- `custy init` creates editable project configuration and templates.
+- `custy validate` checks project readiness before consequential repository operations.
+- Individual commands support focused operations when a complete pipeline is unnecessary.
+- `custy run` profiles provide predictable end-to-end workflows without hiding execution order.
+- Global `--dry-run`, `--no-dry-run`, `--debug`, and `--log-level` controls improve operational safety and troubleshooting.
+- Dry-run can inspect real project and Git state while intended project-file, Git, editor, and remote mutations are simulated.
+- Rich terminal panels, tables, progress indicators, and summaries make command behavior and results easier to understand.
+
+### 🧰 Better for Contributors and Integrators
+
+- CLI presentation and core behavior are separated under `app/cli` and `app/core`.
+- Git execution, Git services, pipeline steps, version strategies, changelog processing, initialization, cleanup, UI, and configuration have focused responsibilities and extension points.
+- Workflow execution is organized around reusable profiles, ordered steps, resolvers, builders, and an execution engine.
+- Changelog generation is separated into typed models and independently testable parsing, processing, provider, sorting, integration, and rendering components.
+- Smaller components and explicit protocols, services, factories, builders, presenters, and strategies make behavior easier to locate, test, replace, and extend.
+- Centralized diagnostic logging improves troubleshooting and observability.
+- Modular development tooling and documented architecture simplify local validation and release maintenance.
+
+### 📝 Changelog and Release Automation
+
+The changelog generator has been rebuilt around typed release and commit models.
+
+It can clean and parse structured commit messages, recognize breaking changes,
+group entries by type and scope, integrate pending release commits, remove
+duplicates, sort releases, generate comparison links, collect contributor
+metadata and statistics, and render a consistent `CHANGELOG.md` using
+configurable Jinja templates.
+
+Determinate progress reports `Unreleased` content and every discovered Git tag
+while release history is collected. During dry-run, changelog collection and
+rendering can execute without replacing the existing changelog file.
+
+Custy 2.0 also adds broader release automation through modular Make targets,
+Docker and Docker Compose workflows, GitHub Actions, GitLab CI, pre-commit,
+quality tooling, packaging, and wheel/source-distribution generation.
+
+### 🧹 Changes Since v2.0.0-rc.1
+
+The release-candidate feature set was retained without additional
+supported-command behavior changes.
+
+Final stable-release work includes:
+
+- Removed temporary root development notes and scratch change-tracking files.
+- Removed completed root and version-specific TODO files.
+- Archived the v2.0.0 development scope, decisions, completed work, remaining ideas, and release checklist in `docs/TODO_tracking_history.md`.
+- Reviewed final repository contents so personal and temporary planning files are not included unintentionally.
+- Performed final repository housekeeping and stable-release preparation.
+
+There are no additional supported-command behavior changes between
+`v2.0.0-rc.1` and `v2.0.0`.
+
+### ⚠️ Breaking Changes and Upgrade Notes for 1.x Users
+
+Custy 2.0 contains significant compatibility changes compared with the 1.x
+release line.
+
+- Python 3.14 or newer is required instead of the previous Python 3.11 baseline.
+- Replace `.custor.toml` with the generated `.config/custy/config.toml` configuration and review its values.
+- Review editable resources under `.config/custy/templates` before running commit or release workflows.
+- Replace old `custy all` usage with `custy run release` or `custy run full` as appropriate.
+- Replace `custy commit-tag-bump` with focused commands or a supported `custy run` profile.
+- Replace `custy cleaned-backups` with `custy cleanup backups`.
+- Replace `custy clean-branches` with `custy cleanup branches`.
+- Use `custy changelog generate` for standalone changelog generation.
+- The console entrypoint now uses the Typer application at `app.cli.main:app`.
+- Internal module paths and extension points changed substantially because CLI, core, Git, pipeline, UI, configuration, and changelog responsibilities are now separated.
+
+Existing 1.x projects should run `custy init`, review the generated
+`.config/custy` resources, update legacy command invocations, and validate the
+project configuration before adopting Custy 2.0.
+
+Review `custy --help` and command-specific help before migrating existing
+automation scripts.
+
+### ⚠️ Experimental Feature
+
+The `custy workflow` branch-policy command remains experimental.
+
+Its behavior may change in later releases, so use it cautiously and preview
+intended operations before allowing mutations.
+
+The stable designation for Custy v2.0.0 applies to the supported command set;
+it does not change the experimental status of this feature.
+
+### ✅ Release Status
+
+- Version: `v2.0.0`
+- Previous version: `v2.0.0-rc.1`
+- Release line: `2.x`
+- Versioning strategy: Semantic Versioning
+- Stability: Stable for supported commands
+- Experimental: `custy workflow` branch-policy functionality remains experimental
+
+Thank you for testing the Custy 2.0 release candidate and helping validate the
+new foundation for the stable 2.0 release line.
+
+_Release: v2.0.0_
+_Stability: Stable_
+_Author: Devalltect / Rizky Fernandes_
+```

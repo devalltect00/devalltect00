@@ -3,9 +3,9 @@
 # Hi, I'm Devalltect00 👋
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=D81B85,4DD9FF,3A7BFF&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24">
-  <source media="(prefers-color-scheme: light)" srcset="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=99015B,3FCAFF,014C68&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24">
-  <img src="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=99015B,3FCAFF,014C68&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24" alt="Full-Stack Developer — Pause, Think, Act">
+  <source media="(prefers-color-scheme: dark)" srcset="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=D81B85%2C4DD9FF%2C3A7BFF&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24">
+  <source media="(prefers-color-scheme: light)" srcset="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=99015B%2C3FCAFF%2C014C68&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24">
+  <img src="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=99015B%2C3FCAFF%2C014C68&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24" alt="Full-Stack Developer — Pause, Think, Act">
 </picture>
 
 I turn ideas and spare-time experiments into web apps, desktop apps, APIs, and developer tools. I mostly build solo, sometimes with a team, and enjoy keeping the process creative, curious, and fun. Contributions and creative ideas are welcome.

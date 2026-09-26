@@ -10,7 +10,8 @@
 
 I turn ideas and spare-time experiments into web apps, desktop apps, APIs, and developer tools. I mostly build solo, sometimes with a team, and enjoy keeping the process creative, curious, and fun. Contributions and creative ideas are welcome.
 
-[![View Portfolio](https://img.shields.io/badge/View_Portfolio-99015B?style=for-the-badge&logo=vercel&logoColor=white)](https://personal-portfolio-devalltect00.vercel.app/)
+[![Devalltect Home](https://img.shields.io/badge/Devalltect_Home-1B3569?style=for-the-badge&logo=githubpages&logoColor=white)](https://devalltect00.github.io/)
+[![View Portfolio](https://img.shields.io/badge/View_Portfolio-99015B?style=for-the-badge&logo=vercel&logoColor=white)](https://devalltect-portfolio.vercel.app/)
 
 Explore selected projects, experiments, and the ideas behind the tools I build.
 
@@ -204,7 +205,9 @@ Explore selected projects, experiments, and the ideas behind the tools I build.
 &nbsp;&nbsp;
 <a href="https://www.linkedin.com/in/rizky-purwanto-fernandes/" title="LinkedIn"><img src="https://img.icons8.com/color/48/linkedin.png" width="38" height="38" alt="LinkedIn"></a>
 &nbsp;&nbsp;
-<a href="https://personal-portfolio-devalltect00.vercel.app/" title="Personal portfolio"><img src="./assets/icons/briefcase.svg" width="38" height="38" alt="Personal portfolio"></a>
+<a href="https://devalltect00.github.io/" title="Devalltect home"><img src="./assets/icons/home.svg" width="38" height="38" alt="Devalltect home"></a>
+&nbsp;&nbsp;
+<a href="https://devalltect-portfolio.vercel.app/" title="Personal portfolio"><img src="./assets/icons/briefcase.svg" width="38" height="38" alt="Personal portfolio"></a>
 &nbsp;&nbsp;
 <a href="https://devalltect00.github.io/devalltect-docs/" title="Documentation"><img src="./assets/icons/book-open.svg" width="38" height="38" alt="Documentation"></a>
 

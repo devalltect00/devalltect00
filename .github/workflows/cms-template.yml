@@ -1,0 +1,17 @@
+# Public profile CI is read-only; only a separately confirmed CMS Owner action can publish approved content.
+name: Check CMS profile template
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - run: node --test scripts/cms/template.test.mjs

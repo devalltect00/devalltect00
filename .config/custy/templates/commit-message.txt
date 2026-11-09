@@ -1,19 +1,16 @@
-docs(README.md): add homepage links
+feat(profile): adopt CMS marked regions with read-only template checks
 
-Update the GitHub profile repository.
+- Add exactly three marker pairs without replacing or reformatting existing README content.
+- Preserve the authored banner, links, activity and contribution-snake automation.
+- Add read-only CI template tests and document the shared Go generator, confirmed publishing and offline preview.
+- Include synchronized native workflow/recovery diagrams and local acceptance limits; no hosted publishing is enabled.
 
-### ✨ Profile Experience
+Tag: none
+Phase: GitHub and GitLab profile publishing milestone
 
-- Add a new button based links for homepage.
-
-### 🤝 Contact and Navigation
-
-- Add icon-based links for homepage
-
-This commit intentionally has no associated release tag. The repository is a
-GitHub profile presentation and automation update rather than a versioned
-application release.
-
-🔖 **Tags**:
-- Type: `#docs`, `#profile`, `#documentation`
-- Experience: `#homepage`
+Tags:
+- Type: #feature, #security
+- Platform: #golang, #flutter, #github, #gitlab
+- Content: #publishing, #profiles
+- Delivery: #checkpoint, #untagged
+- Quality: #tested, #documented

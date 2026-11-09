@@ -8,7 +8,9 @@
   <img src="https://scribesvg.vercel.app/api/render?lines=Full+Stack+Developer;Turning+ideas+into+reliable+software;Pause+%C2%B7+Think+%C2%B7+Act;Python+%7C+TypeScript+%7C+Go&amp;gradient=99015B%2C3FCAFF%2C014C68&amp;background=transparent&amp;center=true&amp;font=Fira+Code&amp;size=24" alt="Full-Stack Developer — Pause, Think, Act">
 </picture>
 
+<!-- DEVALLTECT-CMS:summary:BEGIN -->
 I turn ideas and spare-time experiments into web apps, desktop apps, APIs, and developer tools. I mostly build solo, sometimes with a team, and enjoy keeping the process creative, curious, and fun. Contributions and creative ideas are welcome.
+<!-- DEVALLTECT-CMS:summary:END -->
 
 [![Devalltect Home](https://img.shields.io/badge/Devalltect_Home-1B3569?style=for-the-badge&logo=githubpages&logoColor=white)](https://devalltect00.github.io/)
 [![View Portfolio](https://img.shields.io/badge/View_Portfolio-99015B?style=for-the-badge&logo=vercel&logoColor=white)](https://devalltect-portfolio.vercel.app/)
@@ -17,6 +19,7 @@ Explore selected projects, experiments, and the ideas behind the tools I build.
 
 </div>
 
+<!-- DEVALLTECT-CMS:toolkit:BEGIN -->
 ## 🧰 Technology stack
 
 <div align="center">
@@ -81,6 +84,8 @@ Explore selected projects, experiments, and the ideas behind the tools I build.
 
 </div>
 
+<!-- DEVALLTECT-CMS:toolkit:END -->
+<!-- DEVALLTECT-CMS:projects:BEGIN -->
 ## 🚀 Featured projects
 
 <table align="center" width="98%">
@@ -142,6 +147,7 @@ Explore selected projects, experiments, and the ideas behind the tools I build.
   </tr>
 </table>
 
+<!-- DEVALLTECT-CMS:projects:END -->
 ## 📊 GitHub activity
 
 <table align="center" width="98%">

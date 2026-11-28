@@ -9,7 +9,10 @@
 </picture>
 
 <!-- DEVALLTECT-CMS:summary:BEGIN -->
-I turn ideas and spare-time experiments into web apps, desktop apps, APIs, and developer tools. I mostly build solo, sometimes with a team, and enjoy keeping the process creative, curious, and fun. Contributions and creative ideas are welcome.
+<!-- devalltect-profile-v1 release=068ba925-6c73-4023-8662-b04bbd054b96 sequence=2 digest=e7a5783d63020d35fe03b42f5126535a13ebfd64525eced7f72b831193aa6bfd channel=github section=summary -->
+<p><strong>Rizky Purwanto Fernandes</strong></p>
+<p>I am a Full-Stack Developer and Software Engineer who turns ideas into maintainable web applications, APIs, developer tools, and thoughtful user experiences. Since starting programming in 2019, I have worked across product development, international remote collaboration, IT support, academic research, open-source tooling, and community projects—learning through every iteration.</p>
+<p><strong>Current focus:</strong> I completed Stéphane Maarek’s AWS Cloud Practitioner (CLF-C02) exam prep course on Udemy in November 2026. I am currently focusing on Kubernetes and cloud-native fundamentals as I prepare for the KCNA exam.</p>
 <!-- DEVALLTECT-CMS:summary:END -->
 
 [![Devalltect Home](https://img.shields.io/badge/Devalltect_Home-1B3569?style=for-the-badge&logo=githubpages&logoColor=white)](https://devalltect00.github.io/)
@@ -20,133 +23,80 @@ Explore selected projects, experiments, and the ideas behind the tools I build.
 </div>
 
 <!-- DEVALLTECT-CMS:toolkit:BEGIN -->
-## 🧰 Technology stack
-
-<div align="center">
-
-### Languages
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=python%2Cjs%2Cts%2Cgo%2Cphp%2Cjava%2Ccpp%2Ccs&amp;theme=dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=python%2Cjs%2Cts%2Cgo%2Cphp%2Cjava%2Ccpp%2Ccs&amp;theme=light">
-  <img src="https://skillicons.dev/icons?i=python%2Cjs%2Cts%2Cgo%2Cphp%2Cjava%2Ccpp%2Ccs&amp;theme=light" alt="Python, JavaScript, TypeScript, Go, PHP, Java, C++, and C#">
-</picture>
-
-### Frontend and mobile
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react%2Cnextjs%2Ctailwind%2Csass%2Cvite%2Castro&amp;theme=dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=react%2Cnextjs%2Ctailwind%2Csass%2Cvite%2Castro&amp;theme=light">
-  <img src="https://skillicons.dev/icons?i=react%2Cnextjs%2Ctailwind%2Csass%2Cvite%2Castro&amp;theme=light" alt="React, React Native, Next.js, Tailwind CSS, Sass, Vite, and Astro">
-</picture>
-
-<sub>Building web interfaces with React and cross-platform applications with React Native.</sub>
-
-### Backend and automation
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=flask%2Cfastapi%2Claravel%2Cnodejs&amp;theme=dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=flask%2Cfastapi%2Claravel%2Cnodejs&amp;theme=light">
-  <img src="https://skillicons.dev/icons?i=flask%2Cfastapi%2Claravel%2Cnodejs&amp;theme=light" alt="Flask, FastAPI, Laravel, and Node.js">
-</picture>
-&nbsp;
-<img src="https://cdn.simpleicons.org/scrapy/60A839" width="48" height="48" alt="Scrapy" title="Scrapy">
-
-<sub>Including web scraping and crawling workflows.</sub>
-
-### Desktop and productivity
-
-<img src="https://cdn.simpleicons.org/qt/41CD52" width="48" height="48" alt="PyQt 5 and PyQt 6" title="PyQt 5/6">
-&nbsp;
-<img src="https://img.icons8.com/color/48/microsoft-excel-2019--v1.png" width="48" height="48" alt="Microsoft Excel" title="Microsoft Excel">
-
-<sub>Microsoft Excel and LinkedIn icons by <a href="https://icons8.com">Icons8</a>.</sub>
-
-### Data
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=mysql%2Cpostgres%2Cmongodb&amp;theme=dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=mysql%2Cpostgres%2Cmongodb&amp;theme=light">
-  <img src="https://skillicons.dev/icons?i=mysql%2Cpostgres%2Cmongodb&amp;theme=light" alt="MySQL, PostgreSQL, and MongoDB">
-</picture>
-
-### Platform, delivery, documentation, and design
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=docker%2Cgit%2Cgithub%2Cgitlab%2Clinux%2Cfigma%2Carduino&amp;theme=dark">
-  <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=docker%2Cgit%2Cgithub%2Cgitlab%2Clinux%2Cfigma%2Carduino&amp;theme=light">
-  <img src="https://skillicons.dev/icons?i=docker%2Cgit%2Cgithub%2Cgitlab%2Clinux%2Cfigma%2Carduino&amp;theme=light" alt="Docker, Git, GitHub, GitLab, Linux, Figma, and Arduino">
-</picture>
-&nbsp;
-<img src="https://cdn.simpleicons.org/docusaurus/3ECC5F" width="48" height="48" alt="Docusaurus" title="Docusaurus">
-
-<sub>Also working with Docker Compose, GitHub CLI, and GitLab CLI.</sub>
-
-</div>
-
+<!-- devalltect-profile-v1 release=068ba925-6c73-4023-8662-b04bbd054b96 sequence=2 digest=e7a5783d63020d35fe03b42f5126535a13ebfd64525eced7f72b831193aa6bfd channel=github section=toolkit -->
+<h2>Toolkit</h2>
+<p>Self-assessed levels: Exploring (learning), Comfortable (routine work), Proficient (independent delivery), Advanced (deeper design and troubleshooting). These are categories, not percentages.</p>
+<table>
+<tr><th>Technology</th><th>Level</th><th>Context</th></tr>
+<tr><td>React</td><td>advanced</td><td>frontend</td></tr>
+<tr><td>TypeScript</td><td>advanced</td><td>languages</td></tr>
+<tr><td>Next.js</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>Laravel</td><td>proficient</td><td>backend</td></tr>
+<tr><td>Python</td><td>advanced</td><td>languages</td></tr>
+<tr><td>PostgreSQL</td><td>proficient</td><td>data</td></tr>
+<tr><td>Docker</td><td>proficient</td><td>platform</td></tr>
+<tr><td>Git</td><td>advanced</td><td>developer-tools</td></tr>
+<tr><td>GitLab CI/CD</td><td>proficient</td><td>platform</td></tr>
+<tr><td>FastAPI</td><td>advanced</td><td>backend</td></tr>
+<tr><td>Flask</td><td>advanced</td><td>backend</td></tr>
+<tr><td>Node.js</td><td>proficient</td><td>backend</td></tr>
+<tr><td>REST APIs</td><td>advanced</td><td>backend</td></tr>
+<tr><td>Scrapy</td><td>comfortable</td><td>backend</td></tr>
+<tr><td>Machine Learning</td><td>comfortable</td><td>data</td></tr>
+<tr><td>MongoDB</td><td>comfortable</td><td>data</td></tr>
+<tr><td>MySQL</td><td>proficient</td><td>data</td></tr>
+<tr><td>Figma</td><td>comfortable</td><td>design</td></tr>
+<tr><td>Flutter</td><td>exploring</td><td>desktop</td></tr>
+<tr><td>Make</td><td>advanced</td><td>developer-tools</td></tr>
+<tr><td>Playwright</td><td>comfortable</td><td>developer-tools</td></tr>
+<tr><td>Postman</td><td>proficient</td><td>developer-tools</td></tr>
+<tr><td>Pytest</td><td>proficient</td><td>developer-tools</td></tr>
+<tr><td>Astro</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>CSS</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>Docusaurus</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>HTML</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>Tailwind CSS</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>Vite</td><td>proficient</td><td>frontend</td></tr>
+<tr><td>Dart</td><td>exploring</td><td>languages</td></tr>
+<tr><td>Go</td><td>exploring</td><td>languages</td></tr>
+<tr><td>JavaScript</td><td>advanced</td><td>languages</td></tr>
+<tr><td>PHP</td><td>proficient</td><td>languages</td></tr>
+<tr><td>SQL</td><td>proficient</td><td>languages</td></tr>
+<tr><td>AWS</td><td>exploring</td><td>platform</td></tr>
+<tr><td>Docker Compose</td><td>proficient</td><td>platform</td></tr>
+<tr><td>GitHub Actions</td><td>proficient</td><td>platform</td></tr>
+<tr><td>Linux</td><td>comfortable</td><td>platform</td></tr>
+<tr><td>PowerShell</td><td>comfortable</td><td>platform</td></tr>
+<tr><td>Vercel</td><td>proficient</td><td>platform</td></tr>
+</table>
 <!-- DEVALLTECT-CMS:toolkit:END -->
 <!-- DEVALLTECT-CMS:projects:BEGIN -->
-## 🚀 Featured projects
-
-<table align="center" width="98%">
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <h3>Path Header Scanner</h3>
-      <a href="https://github.com/devalltect00/Path-Header-Scanner">
-        <img src="./assets/projects/path-header-scanner.png" alt="Path Header Scanner terminal banner" width="100%">
-      </a>
-      <p align="left">Preview, validate, and apply consistent repository-relative path headers across source code and documentation.</p>
-      <a href="https://github.com/devalltect00/Path-Header-Scanner">
-        <img src="https://img.shields.io/badge/Repository-99015B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Path Header Scanner repository">
-      </a>
-      <a href="https://devalltect00.github.io/devalltect-docs/docs/path-header-scanner">
-        <img src="https://img.shields.io/badge/Documentation-014C68?style=for-the-badge&amp;logo=docusaurus&amp;logoColor=white" alt="Path Header Scanner documentation">
-      </a>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <h3>Doc Gen</h3>
-      <a href="https://github.com/devalltect00/Doc-Gen">
-        <img src="./assets/projects/doc-gen.png" alt="Doc Gen terminal banner" width="100%">
-      </a>
-      <p align="left">Generate, print, and analyze repository-structure documentation in Markdown.</p>
-      <a href="https://github.com/devalltect00/Doc-Gen">
-        <img src="https://img.shields.io/badge/Repository-99015B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Doc Gen repository">
-      </a>
-      <a href="https://devalltect00.github.io/devalltect-docs/docs/doc-gen">
-        <img src="https://img.shields.io/badge/Documentation-014C68?style=for-the-badge&amp;logo=docusaurus&amp;logoColor=white" alt="Doc Gen documentation">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center" valign="top">
-      <h3>Reflow</h3>
-      <a href="https://github.com/devalltect00/Git-Reflow">
-        <img src="./assets/projects/reflow.png" alt="Reflow terminal banner" width="100%">
-      </a>
-      <p align="left">Convert repository tags, recover release automation, and publish tagged container images through repository-aware workflows.</p>
-      <a href="https://github.com/devalltect00/Git-Reflow">
-        <img src="https://img.shields.io/badge/Repository-99015B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Reflow repository">
-      </a>
-      <a href="https://devalltect00.github.io/devalltect-docs/docs/reflow">
-        <img src="https://img.shields.io/badge/Documentation-014C68?style=for-the-badge&amp;logo=docusaurus&amp;logoColor=white" alt="Reflow documentation">
-      </a>
-    </td>
-    <td width="50%" align="center" valign="top">
-      <h3>Custy</h3>
-      <a href="https://github.com/devalltect00/Custy">
-        <img src="./assets/projects/custy.png" alt="Custy terminal banner" width="100%">
-      </a>
-      <p align="left">Automate Git workflows, versioning, changelogs, backups, cleanup, and release delivery through configurable development pipelines.</p>
-      <a href="https://github.com/devalltect00/Custy">
-        <img src="https://img.shields.io/badge/Repository-99015B?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="Custy repository">
-      </a>
-      <a href="https://devalltect00.github.io/devalltect-docs/docs/custy">
-        <img src="https://img.shields.io/badge/Documentation-014C68?style=for-the-badge&amp;logo=docusaurus&amp;logoColor=white" alt="Custy documentation">
-      </a>
-    </td>
-  </tr>
-</table>
-
+<!-- devalltect-profile-v1 release=068ba925-6c73-4023-8662-b04bbd054b96 sequence=2 digest=e7a5783d63020d35fe03b42f5126535a13ebfd64525eced7f72b831193aa6bfd channel=github section=projects -->
+<h2>Selected projects</h2>
+<h3>StockFlow — Inventory &amp; Sales</h3>
+<p>A warehouse inventory and sales app built for a software engineering take-home assessment. The React and TypeScript interface uses a Go API and PostgreSQL. Stock changes and sales orders are recorded together so concurrent orders cannot oversell inventory.</p>
+<p><strong>Role:</strong> Full-stack developer (technical assessment)</p>
+<p><strong>Status:</strong> maintained</p>
+<p><strong>Built with:</strong> Docker, Go, Goose, pgx, PostgreSQL, React, React Router, TanStack Query, Zod, Vitest, TypeScript, Vite</p>
+<p><a href="https://devalltect-portfolio.vercel.app/en/projects/stockflow/">website</a></p>
+<h3>Custy — Git Workflow &amp; Release Automation CLI</h3>
+<p>Configuration-driven developer CLI for project initialization, validation, versioning, changelog generation, Git release automation, reusable pipelines, backups, cleanup, and multi-remote synchronization.</p>
+<p><strong>Role:</strong> Author &amp; Software Architect</p>
+<p><strong>Status:</strong> maintained · v2.1.2</p>
+<p><strong>Built with:</strong> Docker, Docker Compose, Git, GitHub Actions, GitLab CI/CD, Make, Python, Typer, Pydantic, Semantic Versioning, PEP 440, Rich, Jinja2, Commitizen</p>
+<p><a href="https://devalltect00.github.io/devalltect-docs/docs/custy">documentation</a> · <a href="https://github.com/devalltect00/Custy">github</a> · <a href="https://devalltect00.github.io/devalltect-docs/docs/custy/getting-started/installation">installation</a> · <a href="https://devalltect00.github.io/devalltect-docs/docs/custy/getting-started/first-workflow">usage</a></p>
+<h3>Devalltect Portfolio v2 — Interactive Developer Portfolio</h3>
+<p>A bilingual, interactive developer portfolio showcasing Devalltect projects, technical experience, and creative software engineering work.</p>
+<p><strong>Role:</strong> Author, Designer &amp; Software Architect</p>
+<p><strong>Status:</strong> in-progress · v2.1.0</p>
+<p><strong>Built with:</strong> Docker, Docker Compose, GitHub Actions, GitLab CI/CD, Next.js, Node.js, pnpm, React, Tailwind CSS, React Three Fiber, Motion, Zod, Nginx, Three.js, TypeScript, Vercel</p>
+<p><a href="https://devalltect-portfolio.vercel.app/">demo</a> · <a href="https://devalltect00.github.io/devalltect-docs/docs/devalltect-portfolio">documentation</a></p>
+<h3>Devalltect Docs — Bilingual Developer Documentation Portal</h3>
+<p>Bilingual Docusaurus documentation portal for Devalltect developer and DevOps tools.</p>
+<p><strong>Role:</strong> Author &amp; Documentation Architect</p>
+<p><strong>Status:</strong> maintained · v1.1.0</p>
+<p><strong>Built with:</strong> Docker, Docker Compose, Docusaurus, GitHub Actions, GitLab CI/CD, Make, MDX, Node.js, React, GitHub Pages, Nginx, CSS Modules, TypeScript, Yarn</p>
+<p><a href="https://devalltect00.github.io/devalltect-docs/">demo</a> · <a href="https://devalltect00.github.io/devalltect-docs">documentation</a> · <a href="https://github.com/devalltect00/devalltect-docs">github</a></p>
 <!-- DEVALLTECT-CMS:projects:END -->
 ## 📊 GitHub activity
 
